@@ -1,0 +1,1787 @@
+INFO 10-16 05:12:48 [__init__.py:244] Automatically detected platform cuda.
+INFO 10-16 05:12:52 [api_server.py:1395] vLLM API server version 0.9.2
+INFO 10-16 05:12:52 [cli_args.py:325] non-default args: {'port': 8003, 'model': '/home/models/DeepSeek-V2-Lite', 'trust_remote_code': True, 'max_model_len': 150000, 'block_size': 128, 'gpu_memory_utilization': 0.85, 'enable_prefix_caching': True, 'max_num_batched_tokens': 65536, 'max_num_seqs': 1, 'kv_transfer_config': KVTransferConfig(kv_connector='UnifiedCacheConnectorV1', engine_id='15620182-7e4f-46af-a39e-7726e5a4c621', kv_buffer_device='cuda', kv_buffer_size=1000000000.0, kv_role='kv_producer', kv_rank=None, kv_parallel_size=1, kv_ip='127.0.0.1', kv_port=14579, kv_connector_extra_config={'ucm_connector_name': 'UcmNfsStore', 'ucm_connector_config': {'storage_backends': '/home/share/yuhui-test/test1'}}, kv_connector_module_path='ucm.integration.vllm.uc_connector'), 'disable_log_requests': True}
+INFO 10-16 05:12:52 [config.py:240] Replacing legacy 'type' key with 'rope_type'
+INFO 10-16 05:13:00 [config.py:841] This model supports multiple tasks: {'generate', 'embed', 'reward', 'classify'}. Defaulting to 'generate'.
+INFO 10-16 05:13:00 [config.py:1472] Using max model len 150000
+INFO 10-16 05:13:00 [config.py:2285] Chunked prefill is enabled with max_num_batched_tokens=65536.
+INFO 10-16 05:13:00 [cuda.py:165] Forcing kv cache block size to 64 for FlashMLA backend.
+INFO 10-16 05:13:04 [__init__.py:244] Automatically detected platform cuda.
+INFO 10-16 05:13:08 [core.py:526] Waiting for init message from front-end.
+INFO 10-16 05:13:08 [core.py:69] Initializing a V1 LLM engine (v0.9.2) with config: model='/home/models/DeepSeek-V2-Lite', speculative_config=None, tokenizer='/home/models/DeepSeek-V2-Lite', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config={}, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=150000, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=/home/models/DeepSeek-V2-Lite, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":[],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output"],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"max_capture_size":512,"local_cache_dir":null}
+INFO 10-16 05:13:12 [parallel_state.py:1076] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+INFO 10-16 05:13:12 [factory.py:74] Creating v1 connector with name: UnifiedCacheConnectorV1 and engine_id: 15620182-7e4f-46af-a39e-7726e5a4c621
+WARNING 10-16 05:13:12 [base.py:71] Initializing KVConnectorBase_V1. This API is experimental and subject to change in the future as we iterate the design.
+[2025-10-16 05:13:12] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:142] kv_block_size = 1990656, io_size = 73728,
+[2025-10-16 05:13:12] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:147] init UCConnectorImpl, connector: UcmNfsStore
+[2025-10-16 05:13:12] - ucm.store.factory - INFO [factory.py:56] Creating connector with name: UcmNfsStore
+[2025-10-16 05:13:12.588416][UC][I] NFSStore-(Release). [130143,130143][nfsstore.cc:104,ShowConfig]
+[2025-10-16 05:13:12.588457][UC][I] Set UC::StorageBackends to ["/home/share/yuhui-test/test1"]. [130143,130143][nfsstore.cc:105,ShowConfig]
+[2025-10-16 05:13:12.588461][UC][I] Set UC::BlockSize to 1990656. [130143,130143][nfsstore.cc:106,ShowConfig]
+[2025-10-16 05:13:12.588463][UC][I] Set UC::TransferEnable to true. [130143,130143][nfsstore.cc:107,ShowConfig]
+[2025-10-16 05:13:12.588466][UC][I] Set UC::DeviceId to 0. [130143,130143][nfsstore.cc:108,ShowConfig]
+[2025-10-16 05:13:12.588468][UC][I] Set UC::StreamNumber to 32. [130143,130143][nfsstore.cc:109,ShowConfig]
+[2025-10-16 05:13:12.588470][UC][I] Set UC::IOSize to 73728. [130143,130143][nfsstore.cc:110,ShowConfig]
+[2025-10-16 05:13:12.588473][UC][I] Set UC::BufferNumber to 512. [130143,130143][nfsstore.cc:111,ShowConfig]
+[2025-10-16 05:13:12.588475][UC][I] Set UC::TimeoutMs to 30000. [130143,130143][nfsstore.cc:112,ShowConfig]
+INFO 10-16 05:13:12 [topk_topp_sampler.py:49] Using FlashInfer for top-p & top-k sampling.
+INFO 10-16 05:13:12 [gpu_model_runner.py:1858] Starting to load model /home/models/DeepSeek-V2-Lite...
+INFO 10-16 05:13:12 [gpu_model_runner.py:1863] Loading model from scratch...
+INFO 10-16 05:13:13 [cuda.py:228] Using FlashMLA backend on V1 engine.
+Loading safetensors checkpoint shards:   0% Completed | 0/4 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  25% Completed | 1/4 [00:01<00:03,  1.28s/it]
+Loading safetensors checkpoint shards:  50% Completed | 2/4 [00:03<00:03,  1.82s/it]
+Loading safetensors checkpoint shards:  75% Completed | 3/4 [00:05<00:02,  2.09s/it]
+Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:08<00:00,  2.18s/it]
+Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:08<00:00,  2.05s/it]
+
+INFO 10-16 05:13:21 [default_loader.py:272] Loading weights took 8.51 seconds
+INFO 10-16 05:13:22 [gpu_model_runner.py:1889] Model loading took 29.3011 GiB and 8.747004 seconds
+INFO 10-16 05:13:27 [backends.py:508] Using cache directory: /root/.cache/vllm/torch_compile_cache/da1c78e869/rank_0_0/backbone for vLLM's torch.compile
+INFO 10-16 05:13:27 [backends.py:519] Dynamo bytecode transform time: 5.04 s
+INFO 10-16 05:13:31 [backends.py:155] Directly load the compiled graph(s) for shape None from the cache, took 3.476 s
+WARNING 10-16 05:13:32 [fused_moe.py:690] Using default MoE config. Performance might be sub-optimal! Config file not found at /usr/local/lib/python3.12/dist-packages/vllm/model_executor/layers/fused_moe/configs/E=64,N=1408,device_name=NVIDIA_H20.json
+INFO 10-16 05:13:32 [monitor.py:34] torch.compile takes 5.04 s in total
+/usr/local/lib/python3.12/dist-packages/torch/utils/cpp_extension.py:2356: UserWarning: TORCH_CUDA_ARCH_LIST is not set, all archs for visible cards are included for compilation. 
+If this is not desired, please set os.environ['TORCH_CUDA_ARCH_LIST'].
+  warnings.warn(
+INFO 10-16 05:13:35 [gpu_worker.py:235] Available KV cache memory: 46.28 GiB
+INFO 10-16 05:13:35 [kv_cache_utils.py:716] GPU KV cache size: 1,597,440 tokens
+INFO 10-16 05:13:35 [kv_cache_utils.py:720] Maximum concurrency for 150,000 tokens per request: 10.65x
+Capturing CUDA graph shapes:   0%|          | 0/67 [00:00<?, ?it/s]Capturing CUDA graph shapes:   1%|▏         | 1/67 [00:00<00:24,  2.67it/s]Capturing CUDA graph shapes:   3%|▎         | 2/67 [00:00<00:23,  2.75it/s]Capturing CUDA graph shapes:   4%|▍         | 3/67 [00:01<00:23,  2.76it/s]Capturing CUDA graph shapes:   6%|▌         | 4/67 [00:01<00:22,  2.79it/s]Capturing CUDA graph shapes:   7%|▋         | 5/67 [00:01<00:22,  2.77it/s]Capturing CUDA graph shapes:   9%|▉         | 6/67 [00:02<00:21,  2.80it/s]Capturing CUDA graph shapes:  10%|█         | 7/67 [00:02<00:21,  2.84it/s]Capturing CUDA graph shapes:  12%|█▏        | 8/67 [00:02<00:20,  2.86it/s]Capturing CUDA graph shapes:  13%|█▎        | 9/67 [00:03<00:20,  2.86it/s]Capturing CUDA graph shapes:  15%|█▍        | 10/67 [00:03<00:19,  2.87it/s]Capturing CUDA graph shapes:  16%|█▋        | 11/67 [00:03<00:19,  2.89it/s]Capturing CUDA graph shapes:  18%|█▊        | 12/67 [00:04<00:18,  2.91it/s]Capturing CUDA graph shapes:  19%|█▉        | 13/67 [00:04<00:18,  2.87it/s]Capturing CUDA graph shapes:  21%|██        | 14/67 [00:04<00:18,  2.84it/s]Capturing CUDA graph shapes:  22%|██▏       | 15/67 [00:05<00:18,  2.86it/s]Capturing CUDA graph shapes:  24%|██▍       | 16/67 [00:05<00:18,  2.83it/s]Capturing CUDA graph shapes:  25%|██▌       | 17/67 [00:05<00:17,  2.84it/s]Capturing CUDA graph shapes:  27%|██▋       | 18/67 [00:06<00:17,  2.85it/s]Capturing CUDA graph shapes:  28%|██▊       | 19/67 [00:06<00:16,  2.83it/s]Capturing CUDA graph shapes:  30%|██▉       | 20/67 [00:07<00:16,  2.84it/s]Capturing CUDA graph shapes:  31%|███▏      | 21/67 [00:07<00:16,  2.87it/s]Capturing CUDA graph shapes:  33%|███▎      | 22/67 [00:07<00:15,  2.88it/s]Capturing CUDA graph shapes:  34%|███▍      | 23/67 [00:08<00:15,  2.86it/s]Capturing CUDA graph shapes:  36%|███▌      | 24/67 [00:08<00:14,  2.88it/s]Capturing CUDA graph shapes:  37%|███▋      | 25/67 [00:08<00:14,  2.84it/s]Capturing CUDA graph shapes:  39%|███▉      | 26/67 [00:09<00:14,  2.85it/s]Capturing CUDA graph shapes:  40%|████      | 27/67 [00:09<00:14,  2.80it/s]Capturing CUDA graph shapes:  42%|████▏     | 28/67 [00:09<00:13,  2.79it/s]Capturing CUDA graph shapes:  43%|████▎     | 29/67 [00:10<00:13,  2.79it/s]Capturing CUDA graph shapes:  45%|████▍     | 30/67 [00:10<00:13,  2.80it/s]Capturing CUDA graph shapes:  46%|████▋     | 31/67 [00:10<00:12,  2.82it/s]Capturing CUDA graph shapes:  48%|████▊     | 32/67 [00:11<00:12,  2.78it/s]Capturing CUDA graph shapes:  49%|████▉     | 33/67 [00:11<00:12,  2.77it/s]Capturing CUDA graph shapes:  51%|█████     | 34/67 [00:12<00:11,  2.79it/s]Capturing CUDA graph shapes:  52%|█████▏    | 35/67 [00:12<00:11,  2.78it/s]Capturing CUDA graph shapes:  54%|█████▎    | 36/67 [00:12<00:11,  2.80it/s]Capturing CUDA graph shapes:  55%|█████▌    | 37/67 [00:13<00:10,  2.81it/s]Capturing CUDA graph shapes:  57%|█████▋    | 38/67 [00:13<00:10,  2.79it/s]Capturing CUDA graph shapes:  58%|█████▊    | 39/67 [00:13<00:10,  2.79it/s]Capturing CUDA graph shapes:  60%|█████▉    | 40/67 [00:14<00:09,  2.77it/s]Capturing CUDA graph shapes:  61%|██████    | 41/67 [00:14<00:09,  2.75it/s]Capturing CUDA graph shapes:  63%|██████▎   | 42/67 [00:14<00:09,  2.78it/s]Capturing CUDA graph shapes:  64%|██████▍   | 43/67 [00:15<00:08,  2.76it/s]Capturing CUDA graph shapes:  66%|██████▌   | 44/67 [00:15<00:08,  2.77it/s]Capturing CUDA graph shapes:  67%|██████▋   | 45/67 [00:16<00:08,  2.73it/s]Capturing CUDA graph shapes:  69%|██████▊   | 46/67 [00:16<00:07,  2.76it/s]Capturing CUDA graph shapes:  70%|███████   | 47/67 [00:16<00:07,  2.76it/s]Capturing CUDA graph shapes:  72%|███████▏  | 48/67 [00:17<00:06,  2.78it/s]Capturing CUDA graph shapes:  73%|███████▎  | 49/67 [00:17<00:06,  2.74it/s]Capturing CUDA graph shapes:  75%|███████▍  | 50/67 [00:17<00:06,  2.73it/s]Capturing CUDA graph shapes:  76%|███████▌  | 51/67 [00:18<00:05,  2.74it/s]Capturing CUDA graph shapes:  78%|███████▊  | 52/67 [00:18<00:05,  2.75it/s]Capturing CUDA graph shapes:  79%|███████▉  | 53/67 [00:18<00:05,  2.74it/s]Capturing CUDA graph shapes:  81%|████████  | 54/67 [00:19<00:04,  2.76it/s]Capturing CUDA graph shapes:  82%|████████▏ | 55/67 [00:19<00:04,  2.75it/s]Capturing CUDA graph shapes:  84%|████████▎ | 56/67 [00:19<00:03,  2.76it/s]Capturing CUDA graph shapes:  85%|████████▌ | 57/67 [00:20<00:03,  2.72it/s]Capturing CUDA graph shapes:  87%|████████▋ | 58/67 [00:20<00:03,  2.74it/s]Capturing CUDA graph shapes:  88%|████████▊ | 59/67 [00:21<00:02,  2.74it/s]Capturing CUDA graph shapes:  90%|████████▉ | 60/67 [00:21<00:02,  2.74it/s]Capturing CUDA graph shapes:  91%|█████████ | 61/67 [00:21<00:02,  2.74it/s]Capturing CUDA graph shapes:  93%|█████████▎| 62/67 [00:22<00:01,  2.73it/s]Capturing CUDA graph shapes:  94%|█████████▍| 63/67 [00:22<00:01,  2.73it/s]Capturing CUDA graph shapes:  96%|█████████▌| 64/67 [00:22<00:01,  2.69it/s]Capturing CUDA graph shapes:  97%|█████████▋| 65/67 [00:23<00:00,  2.72it/s]Capturing CUDA graph shapes:  99%|█████████▊| 66/67 [00:23<00:00,  2.74it/s]Capturing CUDA graph shapes: 100%|██████████| 67/67 [00:24<00:00,  2.52it/s]Capturing CUDA graph shapes: 100%|██████████| 67/67 [00:24<00:00,  2.78it/s]
+INFO 10-16 05:14:00 [gpu_model_runner.py:2414] Graph capturing finished in 24 secs, took 0.88 GiB
+INFO 10-16 05:14:00 [core.py:172] init engine (profile, create kv cache, warmup model) took 37.92 seconds
+INFO 10-16 05:14:00 [factory.py:74] Creating v1 connector with name: UnifiedCacheConnectorV1 and engine_id: 15620182-7e4f-46af-a39e-7726e5a4c621
+WARNING 10-16 05:14:00 [base.py:71] Initializing KVConnectorBase_V1. This API is experimental and subject to change in the future as we iterate the design.
+[2025-10-16 05:14:00] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:142] kv_block_size = 1990656, io_size = 73728,
+[2025-10-16 05:14:00] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:147] init UCConnectorImpl, connector: UcmNfsStore
+[2025-10-16 05:14:00] - ucm.store.factory - INFO [factory.py:56] Creating connector with name: UcmNfsStore
+[2025-10-16 05:14:00.437118][UC][I] NFSStore-(Release). [130143,130143][nfsstore.cc:104,ShowConfig]
+[2025-10-16 05:14:00.437139][UC][I] Set UC::StorageBackends to ["/home/share/yuhui-test/test1"]. [130143,130143][nfsstore.cc:105,ShowConfig]
+[2025-10-16 05:14:00.437142][UC][I] Set UC::BlockSize to 1990656. [130143,130143][nfsstore.cc:106,ShowConfig]
+[2025-10-16 05:14:00.437145][UC][I] Set UC::TransferEnable to false. [130143,130143][nfsstore.cc:107,ShowConfig]
+[2025-10-16 05:14:00.437148][UC][I] Set UC::DeviceId to -1. [130143,130143][nfsstore.cc:108,ShowConfig]
+[2025-10-16 05:14:00.437150][UC][I] Set UC::StreamNumber to 32. [130143,130143][nfsstore.cc:109,ShowConfig]
+[2025-10-16 05:14:00.437152][UC][I] Set UC::IOSize to 262144. [130143,130143][nfsstore.cc:110,ShowConfig]
+[2025-10-16 05:14:00.437155][UC][I] Set UC::BufferNumber to 512. [130143,130143][nfsstore.cc:111,ShowConfig]
+[2025-10-16 05:14:00.437157][UC][I] Set UC::TimeoutMs to 30000. [130143,130143][nfsstore.cc:112,ShowConfig]
+INFO 10-16 05:14:00 [loggers.py:137] Engine 000: vllm cache_config_info with initialization after num_gpu_blocks is: 24960
+WARNING 10-16 05:14:00 [config.py:1392] Default sampling parameters have been overridden by the model's Hugging Face generation config recommended from the model creator. If this is not intended, please relaunch vLLM instance with `--generation-config vllm`.
+INFO 10-16 05:14:00 [serving_chat.py:125] Using default chat sampling params from model: {'temperature': 0.3, 'top_p': 0.95}
+INFO 10-16 05:14:00 [serving_completion.py:72] Using default completion sampling params from model: {'temperature': 0.3, 'top_p': 0.95}
+INFO 10-16 05:14:00 [api_server.py:1457] Starting vLLM API server 0 on http://0.0.0.0:8003
+INFO 10-16 05:14:00 [launcher.py:29] Available routes are:
+INFO 10-16 05:14:00 [launcher.py:37] Route: /openapi.json, Methods: GET, HEAD
+INFO 10-16 05:14:00 [launcher.py:37] Route: /docs, Methods: GET, HEAD
+INFO 10-16 05:14:00 [launcher.py:37] Route: /docs/oauth2-redirect, Methods: GET, HEAD
+INFO 10-16 05:14:00 [launcher.py:37] Route: /redoc, Methods: GET, HEAD
+INFO 10-16 05:14:00 [launcher.py:37] Route: /health, Methods: GET
+INFO 10-16 05:14:00 [launcher.py:37] Route: /load, Methods: GET
+INFO 10-16 05:14:00 [launcher.py:37] Route: /ping, Methods: POST
+INFO 10-16 05:14:00 [launcher.py:37] Route: /ping, Methods: GET
+INFO 10-16 05:14:00 [launcher.py:37] Route: /tokenize, Methods: POST
+INFO 10-16 05:14:00 [launcher.py:37] Route: /detokenize, Methods: POST
+INFO 10-16 05:14:00 [launcher.py:37] Route: /v1/models, Methods: GET
+INFO 10-16 05:14:00 [launcher.py:37] Route: /version, Methods: GET
+INFO 10-16 05:14:00 [launcher.py:37] Route: /v1/chat/completions, Methods: POST
+INFO 10-16 05:14:00 [launcher.py:37] Route: /v1/completions, Methods: POST
+INFO 10-16 05:14:00 [launcher.py:37] Route: /v1/embeddings, Methods: POST
+INFO 10-16 05:14:00 [launcher.py:37] Route: /pooling, Methods: POST
+INFO 10-16 05:14:00 [launcher.py:37] Route: /classify, Methods: POST
+INFO 10-16 05:14:00 [launcher.py:37] Route: /score, Methods: POST
+INFO 10-16 05:14:00 [launcher.py:37] Route: /v1/score, Methods: POST
+INFO 10-16 05:14:00 [launcher.py:37] Route: /v1/audio/transcriptions, Methods: POST
+INFO 10-16 05:14:00 [launcher.py:37] Route: /v1/audio/translations, Methods: POST
+INFO 10-16 05:14:00 [launcher.py:37] Route: /rerank, Methods: POST
+INFO 10-16 05:14:00 [launcher.py:37] Route: /v1/rerank, Methods: POST
+INFO 10-16 05:14:00 [launcher.py:37] Route: /v2/rerank, Methods: POST
+INFO 10-16 05:14:00 [launcher.py:37] Route: /invocations, Methods: POST
+INFO 10-16 05:14:00 [launcher.py:37] Route: /metrics, Methods: GET
+INFO:     Started server process [128341]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+[2025-10-16 05:14:40] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-f60b1eac-52c3-47e4-a1ec-8d68a7f46a76-0.
+[2025-10-16 05:14:40] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 113
+
+num_lookup_hits on hbm: 0
+
+num_lookup_hits on storage except hbm: 6
+
+INFO:     127.0.0.1:43486 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:14:43] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-1673daa7-90d8-45e8-aac4-adadfec8dd36-0.
+[2025-10-16 05:14:43] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 31
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:43486 - "POST /v1/completions HTTP/1.1" 200 OK
+Token indices sequence length is longer than the specified maximum sequence length for this model (87170 > 16384). Running this sequence through the model will result in indexing errors
+[2025-10-16 05:14:43] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-e75b53e2-f28c-4da6-b093-be48a7786de5-0.
+[2025-10-16 05:14:44] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 1362
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 05:14:50 [loggers.py:118] Engine 000: Avg prompt throughput: 925.0 tokens/s, Avg generation throughput: 0.2 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 4.2%
+[2025-10-16 05:14:55] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-0317b6bf-c52e-46c0-ad60-37411cccb053-0.
+[2025-10-16 05:14:55] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 240
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:43488 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:14:56] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-a6e8c9ab-f8f7-4d4d-8cb0-a6f519ccd80b-0.
+[2025-10-16 05:14:56] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 29
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:43490 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:14:56] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-602f30d0-883e-438f-b599-c2f0df09c142-0.
+INFO:     127.0.0.1:38882 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:14:56] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 117
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:43488 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:14:58] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-55d8824d-08ac-4f77-9309-b422cb4ea603-0.
+[2025-10-16 05:14:58] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 124
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:43488 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO 10-16 05:15:00 [loggers.py:118] Engine 000: Avg prompt throughput: 11992.0 tokens/s, Avg generation throughput: 0.5 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 1.8%
+[2025-10-16 05:15:04] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-5503b668-af89-4ba9-8f16-5be746a7c23e-0.
+[2025-10-16 05:15:04] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 190
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:51472 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:15:07] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-28844e50-27ce-43bd-867f-e4553aaef348-0.
+[2025-10-16 05:15:07] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 144
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:51472 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:15:10] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-730af8dd-7799-4832-9765-9d1c34285e2d-0.
+[2025-10-16 05:15:10] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 667
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 05:15:10 [loggers.py:118] Engine 000: Avg prompt throughput: 2140.4 tokens/s, Avg generation throughput: 0.2 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 2.0%
+[2025-10-16 05:15:14] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-f7628738-0b63-430c-b0ac-3d7c0caf80d9-0.
+INFO:     127.0.0.1:51472 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:15:14] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 1285
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 05:15:20 [loggers.py:118] Engine 000: Avg prompt throughput: 4272.2 tokens/s, Avg generation throughput: 0.1 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 1.8%
+[2025-10-16 05:15:24] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-57ffaca9-678d-450a-9da2-1bc87b8a8c22-0.
+INFO:     127.0.0.1:53090 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:15:24] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 211
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+[2025-10-16 05:15:25] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-29fd30c0-30e6-4744-b88c-5b3793af6d98-0.
+INFO:     127.0.0.1:53104 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:15:25] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 356
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+[2025-10-16 05:15:26] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-fa207a18-b984-46d2-9eca-8ef28a5f45bd-0.
+[2025-10-16 05:15:26] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 14
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 6
+
+INFO:     127.0.0.1:53112 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53090 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:15:28] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-f6cbf59a-fa0c-4321-b0dd-24fcc6a8fcf2-0.
+[2025-10-16 05:15:28] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 14
+
+num_lookup_hits on hbm: 12
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:53090 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO 10-16 05:15:30 [loggers.py:118] Engine 000: Avg prompt throughput: 12044.8 tokens/s, Avg generation throughput: 0.5 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 1.8%
+[2025-10-16 05:15:31] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-aaf4a593-1f01-44d8-ae38-10ca12439cce-0.
+[2025-10-16 05:15:31] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 641
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+[2025-10-16 05:15:35] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-8df0a105-0e57-4996-b7dc-d6d3bae0ea13-0.
+INFO:     127.0.0.1:53090 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:15:35] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 167
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:36942 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:15:40] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-83b54df6-c432-40a5-8bc4-28adf2096b1c-0.
+[2025-10-16 05:15:40] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 177
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 05:15:40 [loggers.py:118] Engine 000: Avg prompt throughput: 5175.6 tokens/s, Avg generation throughput: 0.2 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 1.8%
+INFO:     127.0.0.1:36942 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:15:46] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-445bb1e3-1ab9-472c-b9f7-9bf9726ba210-0.
+[2025-10-16 05:15:46] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 15
+
+num_lookup_hits on hbm: 12
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:58748 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:15:49] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-8c0ad353-c3b7-4c8c-82db-07e164a6f675-0.
+[2025-10-16 05:15:49] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 158
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:58748 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO 10-16 05:15:50 [loggers.py:118] Engine 000: Avg prompt throughput: 2248.0 tokens/s, Avg generation throughput: 0.3 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 2.1%
+[2025-10-16 05:15:52] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-608641d9-a6fd-438d-8d77-2b8d2a128999-0.
+[2025-10-16 05:15:52] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 25
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:58748 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:15:55] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-41459a39-0271-438e-aebf-341fbb125dae-0.
+[2025-10-16 05:15:55] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 14
+
+num_lookup_hits on hbm: 12
+
+num_lookup_hits on storage except hbm: 2
+
+INFO:     127.0.0.1:58748 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:15:55] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-4a4f28ee-888b-42c2-a067-f90b4e0eb62a-0.
+[2025-10-16 05:15:55] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 109
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:33866 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:15:58] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-a148661e-eec6-419c-bdc7-c9ef4dec8edc-0.
+[2025-10-16 05:15:58] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 799
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 05:16:00 [loggers.py:118] Engine 000: Avg prompt throughput: 952.1 tokens/s, Avg generation throughput: 0.3 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 2.4%
+[2025-10-16 05:16:03] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-c12ba3f9-e192-451e-abb2-bb710b905341-0.
+INFO:     127.0.0.1:58748 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:16:03] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 205
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 33
+
+INFO:     127.0.0.1:60386 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:16:04] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-27013307-79d5-4a3c-a5ef-b42ea86a7ef5-0.
+[2025-10-16 05:16:04] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 112
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:58748 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:16:07] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-7a21fa44-15cd-445f-bddb-5ea52543b989-0.
+[2025-10-16 05:16:07] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 20
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:58748 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:16:10] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-ce4f9ef4-747c-49b7-8954-35e371d75cca-0.
+INFO:     127.0.0.1:58748 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO 10-16 05:16:10 [loggers.py:118] Engine 000: Avg prompt throughput: 7471.4 tokens/s, Avg generation throughput: 0.5 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 2.8%
+[2025-10-16 05:16:13] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-70a06eb0-9b5f-4505-a652-e1ecc3c2266c-0.
+[2025-10-16 05:16:13] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 14
+
+num_lookup_hits on hbm: 12
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:58748 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:16:16] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-d153d274-b956-4459-a892-31a205e8add2-0.
+[2025-10-16 05:16:16] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 14
+
+num_lookup_hits on hbm: 12
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:58748 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:16:19] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-0ecb5355-42c3-4dc2-bb89-c3f4de192721-0.
+[2025-10-16 05:16:19] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 788
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 05:16:20 [loggers.py:118] Engine 000: Avg prompt throughput: 180.4 tokens/s, Avg generation throughput: 0.2 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 3.1%
+[2025-10-16 05:16:24] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-c00fa722-2534-45c5-9f6b-a2db2abfb023-0.
+INFO:     127.0.0.1:58748 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:16:24] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 382
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:56474 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:16:28] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-874aac0c-a300-49e6-9912-aebf8dab6904-0.
+[2025-10-16 05:16:28] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 133
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 126
+
+INFO:     127.0.0.1:58748 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO 10-16 05:16:30 [loggers.py:118] Engine 000: Avg prompt throughput: 8349.6 tokens/s, Avg generation throughput: 0.3 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 2.8%
+[2025-10-16 05:16:31] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-a2da02bd-ad64-4246-8b9e-f4a03dc9b4e5-0.
+[2025-10-16 05:16:31] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 145
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:58748 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:16:34] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-7e96cd7f-7b7c-4b01-80f3-9fade88e803f-0.
+[2025-10-16 05:16:34] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 165
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:58748 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:16:37] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-2713fe71-adff-48ac-8701-20c217f943eb-0.
+[2025-10-16 05:16:37] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 14
+
+num_lookup_hits on hbm: 12
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:58748 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:16:40] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-5a9c8fd3-c38f-4f53-9317-165a823d5ad4-0.
+[2025-10-16 05:16:40] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 295
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 05:16:40 [loggers.py:118] Engine 000: Avg prompt throughput: 2083.1 tokens/s, Avg generation throughput: 0.3 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 3.0%
+INFO:     127.0.0.1:58748 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:16:46] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-b0662001-630d-4a81-af8a-54cb30a47a78-0.
+[2025-10-16 05:16:46] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 103
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:58748 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:16:49] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-6e48d9a8-5e3f-4999-8624-3242bbc5f96a-0.
+[2025-10-16 05:16:49] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 149
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:58748 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO 10-16 05:16:50 [loggers.py:118] Engine 000: Avg prompt throughput: 3512.2 tokens/s, Avg generation throughput: 0.3 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 3.0%
+[2025-10-16 05:16:52] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-195f8766-a6b5-41dc-abdf-06625694b5fc-0.
+[2025-10-16 05:16:52] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 130
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:58748 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:16:55] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-3264decf-be83-43a5-84d1-0f4ad36c92ba-0.
+[2025-10-16 05:16:55] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 160
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:58748 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:16:58] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-f489e506-5b3b-4092-a05e-d30adf279187-0.
+[2025-10-16 05:16:58] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 51
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:58748 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO 10-16 05:17:00 [loggers.py:118] Engine 000: Avg prompt throughput: 2195.7 tokens/s, Avg generation throughput: 0.3 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 3.1%
+[2025-10-16 05:17:01] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-5a3da686-77fb-486d-877e-0ea67b6975dd-0.
+[2025-10-16 05:17:01] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 154
+
+num_lookup_hits on hbm: 105
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:58748 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:17:04] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-423bffa5-73c3-45b7-baa2-ee15641676bc-0.
+[2025-10-16 05:17:04] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 75
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+[2025-10-16 05:17:04] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-e4389d13-79e4-40a7-8f01-0e2dbbfa9d34-0.
+INFO:     127.0.0.1:58748 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:17:04] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 303
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:34988 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:17:07] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-6a14315b-e912-49c7-8c07-220add6c624f-0.
+[2025-10-16 05:17:07] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 158
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:58748 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:17:10] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-6a4e556e-7a3b-414a-9fa4-32f5ceb2ee48-0.
+[2025-10-16 05:17:10] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 89
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 05:17:10 [loggers.py:118] Engine 000: Avg prompt throughput: 4425.3 tokens/s, Avg generation throughput: 0.4 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 4.0%
+[2025-10-16 05:17:10] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-d525d6c2-348a-4121-8417-78feda603048-0.
+INFO:     127.0.0.1:58748 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:17:10] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 493
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:34988 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:17:16] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-d0bba6ad-92a8-4703-8041-f9ab93850e89-0.
+[2025-10-16 05:17:16] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 109
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:34988 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:17:19] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-7ab77d08-ac3d-4c1f-a226-fb19fb7881ef-0.
+[2025-10-16 05:17:19] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 100
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+[2025-10-16 05:17:19] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-f7aa89b4-0986-4346-bafd-b280f159d956-0.
+INFO:     127.0.0.1:34988 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:17:19] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 420
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 05:17:20 [loggers.py:118] Engine 000: Avg prompt throughput: 5076.9 tokens/s, Avg generation throughput: 0.4 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 4.0%
+INFO:     127.0.0.1:53760 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:17:22] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-8e6004a3-b732-436b-bb78-22546f895b4b-0.
+[2025-10-16 05:17:22] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 24
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:34988 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:17:25] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-cf87e9c5-0ca9-49a6-a6ab-7d77010d2f29-0.
+[2025-10-16 05:17:25] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 34
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:34988 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:17:28] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-976b55e1-8a88-440d-bc37-d9fea15d38c1-0.
+[2025-10-16 05:17:28] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 33
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:34988 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO 10-16 05:17:30 [loggers.py:118] Engine 000: Avg prompt throughput: 3281.4 tokens/s, Avg generation throughput: 0.4 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 4.0%
+[2025-10-16 05:17:31] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-8c4b4e48-1d65-449c-9023-83baa6a7ade0-0.
+[2025-10-16 05:17:31] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 249
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 234
+
+INFO:     127.0.0.1:34988 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:17:34] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-f804f53b-67d8-41f9-be46-6ad875bb0c39-0.
+[2025-10-16 05:17:34] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 84
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+[2025-10-16 05:17:34] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-28e3072e-a5ca-47ee-a824-46a7a2806eea-0.
+INFO:     127.0.0.1:34988 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:17:34] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 258
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:54272 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:17:37] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-b6c91baa-34d7-42de-b867-f571a27035f1-0.
+[2025-10-16 05:17:37] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 390
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 384
+
+INFO:     127.0.0.1:34988 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:17:40] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-bae00895-cbe7-442d-8d51-b1508a6203ec-0.
+[2025-10-16 05:17:40] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 151
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 05:17:40 [loggers.py:118] Engine 000: Avg prompt throughput: 6287.8 tokens/s, Avg generation throughput: 0.4 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 3.9%
+INFO:     127.0.0.1:34988 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:17:43] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-98f44b6b-d4fc-4456-bd89-ee0a7f721c67-0.
+[2025-10-16 05:17:43] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 292
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:34988 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:17:49] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-be721eb5-c0d9-4363-8379-ff719c09fb2f-0.
+[2025-10-16 05:17:49] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 109
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:34988 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO 10-16 05:17:50 [loggers.py:118] Engine 000: Avg prompt throughput: 3535.6 tokens/s, Avg generation throughput: 0.3 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 3.8%
+[2025-10-16 05:17:52] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-992e5b9f-be31-4831-918c-88a40c2ac96a-0.
+[2025-10-16 05:17:52] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 97
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 41
+
+INFO:     127.0.0.1:34988 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:17:55] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-7fd9af6e-a817-4672-a797-8d7e7322e8b7-0.
+[2025-10-16 05:17:55] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 14
+
+num_lookup_hits on hbm: 12
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:34988 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO 10-16 05:18:00 [loggers.py:118] Engine 000: Avg prompt throughput: 718.0 tokens/s, Avg generation throughput: 0.2 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 3.9%
+[2025-10-16 05:18:01] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-dbf6dc3c-7f17-4007-bc18-175f6b030941-0.
+[2025-10-16 05:18:01] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 36
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:55584 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:18:04] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-c8d4e272-1f7b-45f0-b19a-9c72b7f5022b-0.
+[2025-10-16 05:18:04] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 14
+
+num_lookup_hits on hbm: 12
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:55584 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:18:07] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-943c65ca-d357-4b03-ad37-cddac10c8c52-0.
+INFO:     127.0.0.1:55584 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:18:10] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-3e1ce0c2-9428-4612-a4aa-1d9ef2a7ffe4-0.
+[2025-10-16 05:18:10] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 98
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 91
+
+INFO:     127.0.0.1:55584 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO 10-16 05:18:10 [loggers.py:118] Engine 000: Avg prompt throughput: 1051.8 tokens/s, Avg generation throughput: 0.4 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 4.2%
+[2025-10-16 05:18:13] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-a1d57cdb-d5b7-4ab4-928c-9dc24386ec0d-0.
+[2025-10-16 05:18:13] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 19
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:55584 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:18:16] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-57162929-edb3-4e53-a88c-b83e9e7ebc8d-0.
+[2025-10-16 05:18:16] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 430
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:55584 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:18:19] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-8e98e126-a4fd-49f9-8cd3-24436fc4b28c-0.
+[2025-10-16 05:18:19] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 28
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 8
+
+INFO:     127.0.0.1:55584 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO 10-16 05:18:20 [loggers.py:118] Engine 000: Avg prompt throughput: 3063.0 tokens/s, Avg generation throughput: 0.3 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 4.2%
+[2025-10-16 05:18:22] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-1e266ef5-e51a-441c-ad79-913e72f0528c-0.
+INFO:     127.0.0.1:55584 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:18:25] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-abd33142-745c-4501-92bb-d9b940bab73d-0.
+[2025-10-16 05:18:25] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 76
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:55584 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:18:28] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-89166785-100b-4260-a173-8a48bad4e901-0.
+[2025-10-16 05:18:28] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 219
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:55584 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO 10-16 05:18:30 [loggers.py:118] Engine 000: Avg prompt throughput: 1987.3 tokens/s, Avg generation throughput: 0.3 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 4.3%
+[2025-10-16 05:18:31] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-68e05c7f-c791-47c7-aca4-ecf903e4e3f7-0.
+[2025-10-16 05:18:31] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 92
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:55584 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:18:34] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-fb9af737-a859-4b6a-a254-844dae8412d3-0.
+INFO:     127.0.0.1:55584 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:18:37] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-9a8803fe-66e8-401f-bd38-1b97b09db6d6-0.
+[2025-10-16 05:18:37] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 22
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:55584 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:18:40] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-7f549b96-71be-4fa1-b62f-6c04c758174e-0.
+[2025-10-16 05:18:40] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 60
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:55584 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO 10-16 05:18:40 [loggers.py:118] Engine 000: Avg prompt throughput: 1314.0 tokens/s, Avg generation throughput: 0.4 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 4.5%
+[2025-10-16 05:18:43] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-29a6def4-cf90-4c79-a750-b8c1d0f89ae4-0.
+[2025-10-16 05:18:43] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 122
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:55584 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:18:46] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-2bd76262-1fe0-49cb-a940-3fa5afad5eb4-0.
+[2025-10-16 05:18:46] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 569
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:55584 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO 10-16 05:18:50 [loggers.py:118] Engine 000: Avg prompt throughput: 4429.1 tokens/s, Avg generation throughput: 0.2 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 4.4%
+[2025-10-16 05:18:52] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-04791eb5-5aab-44db-aaee-da907af5ee96-0.
+[2025-10-16 05:18:52] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 282
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:55584 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:18:55] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-6723478b-f23d-4c48-aa27-6980bb2ad066-0.
+[2025-10-16 05:18:55] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 58
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:55584 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:18:58] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-87fd6c54-656e-4f29-a2e5-0cd9a6b14505-0.
+[2025-10-16 05:18:58] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 167
+
+num_lookup_hits on hbm: 55
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:55584 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO 10-16 05:19:00 [loggers.py:118] Engine 000: Avg prompt throughput: 3257.9 tokens/s, Avg generation throughput: 0.3 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 4.7%
+[2025-10-16 05:19:01] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-a836b164-e28a-49a1-987d-4f1fff9440bf-0.
+[2025-10-16 05:19:01] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 167
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:55584 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:19:04] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-402694c8-77c4-46fa-86be-e88f8f924111-0.
+[2025-10-16 05:19:04] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 20
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:55584 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:19:07] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-53414a42-0cd8-4dc7-bf08-d779a4482406-0.
+[2025-10-16 05:19:07] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 85
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+[2025-10-16 05:19:07] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-38190337-e149-4178-b956-7b1bc26afde5-0.
+INFO:     127.0.0.1:55584 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:19:07] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 290
+
+num_lookup_hits on hbm: 97
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:45606 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:19:10] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-55527def-1e8c-431c-be4e-5e2e0d8b6f46-0.
+[2025-10-16 05:19:10] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 58
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 41
+
+INFO:     127.0.0.1:55584 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:19:10] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-a706524d-4b84-480f-9798-4d9bebec8a1d-0.
+[2025-10-16 05:19:10] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 639
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 627
+
+INFO 10-16 05:19:10 [loggers.py:118] Engine 000: Avg prompt throughput: 3980.9 tokens/s, Avg generation throughput: 0.5 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 5.2%
+INFO:     127.0.0.1:45606 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:19:16] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-21515143-bb0b-48bf-b85d-cbb2cf2f0f16-0.
+[2025-10-16 05:19:16] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 91
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:40882 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:19:19] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-701e91a5-d097-4e1a-aa98-2534d683a763-0.
+[2025-10-16 05:19:19] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 30
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:40882 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO 10-16 05:19:20 [loggers.py:118] Engine 000: Avg prompt throughput: 4868.1 tokens/s, Avg generation throughput: 0.3 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 5.1%
+[2025-10-16 05:19:22] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-41009bb4-d98a-427d-a55c-6ff79ca413cf-0.
+[2025-10-16 05:19:22] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 125
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+[2025-10-16 05:19:22] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-a106c6d8-8191-4601-ae69-4b0ed4e54caf-0.
+INFO:     127.0.0.1:40882 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:19:22] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 123
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:60338 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:19:25] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-a0a4769d-1624-4912-8cfc-80d183ffd213-0.
+[2025-10-16 05:19:25] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 168
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:40882 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:19:28] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-6d54bb63-53be-4185-b526-e3e29c6dfc6f-0.
+INFO:     127.0.0.1:40882 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO 10-16 05:19:30 [loggers.py:118] Engine 000: Avg prompt throughput: 2764.1 tokens/s, Avg generation throughput: 0.4 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 5.2%
+[2025-10-16 05:19:31] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-88485a48-8667-40c9-8bd3-39745c54bc37-0.
+[2025-10-16 05:19:31] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 23
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:40882 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:19:34] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-77e5f794-86e8-49f3-a1d1-d63e2b4c381c-0.
+[2025-10-16 05:19:34] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 296
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:40882 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:19:37] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-5a853cf0-3f88-4169-9d5d-7a832f428475-0.
+[2025-10-16 05:19:37] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 189
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:40882 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:19:40] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-0f6eb0b9-d261-4698-8e74-b0101ced7557-0.
+[2025-10-16 05:19:40] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 14
+
+num_lookup_hits on hbm: 12
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:40882 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO 10-16 05:19:40 [loggers.py:118] Engine 000: Avg prompt throughput: 3354.5 tokens/s, Avg generation throughput: 0.4 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 5.2%
+[2025-10-16 05:19:43] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-d5fcf582-0a51-4c20-9659-ffb88fb61ab7-0.
+[2025-10-16 05:19:43] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 266
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:40882 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:19:49] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-bf1de88d-d7ed-465b-842b-4f747a8e595f-0.
+[2025-10-16 05:19:49] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 56
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:40882 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO 10-16 05:19:50 [loggers.py:118] Engine 000: Avg prompt throughput: 2070.1 tokens/s, Avg generation throughput: 0.2 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 5.1%
+[2025-10-16 05:19:52] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-91fc8521-e32f-4efc-b07c-d89f91873d19-0.
+[2025-10-16 05:19:52] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 240
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:40882 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:19:55] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-7d2b503b-8e3f-48cd-bf1f-09caa84c2f50-0.
+[2025-10-16 05:19:55] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 290
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:40882 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:19:58] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-b4c1cb12-4cdd-4ea3-a9a3-871262cab9cb-0.
+[2025-10-16 05:19:58] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 59
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 42
+
+INFO:     127.0.0.1:40882 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO 10-16 05:20:00 [loggers.py:118] Engine 000: Avg prompt throughput: 3777.4 tokens/s, Avg generation throughput: 0.3 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 5.1%
+[2025-10-16 05:20:01] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-427eaafb-72cc-438f-930f-ac60a4adf99e-0.
+[2025-10-16 05:20:01] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 28
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 8
+
+INFO:     127.0.0.1:40882 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:20:07] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-3ad53117-122c-47bb-a297-4a34c6ae61ba-0.
+[2025-10-16 05:20:07] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 133
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 66
+
+INFO:     127.0.0.1:52132 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:20:10] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-79606cb2-081e-4162-a84c-11ccb0b45063-0.
+[2025-10-16 05:20:10] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 49
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 16
+
+INFO:     127.0.0.1:52132 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO 10-16 05:20:10 [loggers.py:118] Engine 000: Avg prompt throughput: 1353.3 tokens/s, Avg generation throughput: 0.3 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 5.1%
+[2025-10-16 05:20:13] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-40b39206-169a-41e3-af84-239b6c83fdcb-0.
+[2025-10-16 05:20:13] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 260
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:52132 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:20:16] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-555975d5-2629-49f2-b205-a89bf381da73-0.
+[2025-10-16 05:20:16] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 134
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:52132 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:20:19] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-dd5ffdca-559c-4fad-8602-8121324b3fb2-0.
+[2025-10-16 05:20:19] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 188
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:52132 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO 10-16 05:20:20 [loggers.py:118] Engine 000: Avg prompt throughput: 3737.0 tokens/s, Avg generation throughput: 0.3 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 5.1%
+[2025-10-16 05:20:22] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-92bc1a83-976a-448c-9d51-78556014c3d8-0.
+[2025-10-16 05:20:22] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 277
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:52132 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:20:25] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-ea112539-d29c-4e28-98e4-a72b72622898-0.
+[2025-10-16 05:20:25] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 14
+
+num_lookup_hits on hbm: 12
+
+num_lookup_hits on storage except hbm: 2
+
+INFO:     127.0.0.1:52132 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:20:28] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-8e2fca49-7e92-4da5-a7cd-e96e12598d7b-0.
+[2025-10-16 05:20:28] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 171
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:52132 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO 10-16 05:20:30 [loggers.py:118] Engine 000: Avg prompt throughput: 2963.8 tokens/s, Avg generation throughput: 0.3 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 5.1%
+[2025-10-16 05:20:31] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-e8f73e3a-d91d-4581-beef-a6f5d97a2963-0.
+[2025-10-16 05:20:31] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 26
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:52132 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:20:37] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-b904fdb3-d2a7-420d-88f0-4376776ece9e-0.
+[2025-10-16 05:20:37] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 110
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:47916 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:20:40] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-4a30e944-c688-4245-9ac4-afc05aa49596-0.
+[2025-10-16 05:20:40] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 82
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 05:20:40 [loggers.py:118] Engine 000: Avg prompt throughput: 874.9 tokens/s, Avg generation throughput: 0.2 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 5.1%
+INFO:     127.0.0.1:47916 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:20:43] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-f3fed3b7-db88-45bb-af97-0037ec3f6481-0.
+[2025-10-16 05:20:43] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 213
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:47916 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:20:46] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-62d3199d-5ac3-4d24-8e99-8b15e00042db-0.
+[2025-10-16 05:20:46] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 617
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:47916 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO 10-16 05:20:50 [loggers.py:118] Engine 000: Avg prompt throughput: 5851.1 tokens/s, Avg generation throughput: 0.3 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 5.0%
+[2025-10-16 05:20:52] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-bd1ec60e-d37b-4592-b564-ed2fa8a5d997-0.
+[2025-10-16 05:20:52] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 411
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:47916 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:20:58] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-9f95bf7d-8c0e-4aae-aec1-394391eb1e36-0.
+[2025-10-16 05:20:58] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 132
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:47916 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO 10-16 05:21:00 [loggers.py:118] Engine 000: Avg prompt throughput: 3484.4 tokens/s, Avg generation throughput: 0.2 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 4.9%
+[2025-10-16 05:21:01] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-6c707423-c7c5-46b6-9b5d-5211a1004e2b-0.
+[2025-10-16 05:21:01] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 271
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:47916 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:21:07] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-69a7ae99-be9c-426e-86e4-629dd791270d-0.
+INFO:     127.0.0.1:47916 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:21:10] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-91324a47-d9b4-4446-ac20-352c43bc7dc6-0.
+[2025-10-16 05:21:10] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 71
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 05:21:10 [loggers.py:118] Engine 000: Avg prompt throughput: 1830.0 tokens/s, Avg generation throughput: 0.2 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 4.9%
+INFO:     127.0.0.1:47916 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:21:13] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-6068bd67-16f2-4c89-b5c3-739fe703eb50-0.
+[2025-10-16 05:21:13] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 387
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 379
+
+INFO:     127.0.0.1:47916 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:21:19] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-f38a9abb-ecb1-4597-ba53-34ed3d526cd5-0.
+[2025-10-16 05:21:19] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 125
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:53190 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO 10-16 05:21:20 [loggers.py:118] Engine 000: Avg prompt throughput: 3737.7 tokens/s, Avg generation throughput: 0.3 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 4.9%
+[2025-10-16 05:21:25] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-8aad1161-168c-47c0-9fa8-01c98eeae585-0.
+INFO:     127.0.0.1:49062 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:21:28] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-bb05986c-72f4-4b35-80e9-7bc500ca36d4-0.
+[2025-10-16 05:21:28] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 232
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:49062 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO 10-16 05:21:30 [loggers.py:118] Engine 000: Avg prompt throughput: 1576.2 tokens/s, Avg generation throughput: 0.2 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 4.9%
+[2025-10-16 05:21:31] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-6fed3af4-bcf8-4451-9247-c487985cefbd-0.
+[2025-10-16 05:21:31] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 241
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:49062 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:21:34] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-dbcc2858-2ae5-41fc-af29-6305976b7707-0.
+[2025-10-16 05:21:34] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 269
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:49062 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:21:40] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-b99e2b06-4e57-4b96-bcc4-b69205d76fd0-0.
+[2025-10-16 05:21:40] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 25
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 8
+
+INFO:     127.0.0.1:49062 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO 10-16 05:21:40 [loggers.py:118] Engine 000: Avg prompt throughput: 3432.1 tokens/s, Avg generation throughput: 0.3 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 4.9%
+[2025-10-16 05:21:43] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-95411a44-c3ea-4c3a-a559-d0b8c1a53ba7-0.
+[2025-10-16 05:21:43] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 77
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+[2025-10-16 05:21:43] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-f54ffcf0-33e6-4ed6-83a3-91d08879283c-0.
+INFO:     127.0.0.1:49062 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:21:43] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 409
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:33926 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:21:46] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-991bc12d-34c7-4ed9-b6c6-5a7730d4fe17-0.
+[2025-10-16 05:21:46] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 510
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:49062 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:21:49] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-a29c9e3c-43bd-451b-9143-6d2895752748-0.
+[2025-10-16 05:21:49] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 341
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 05:21:50 [loggers.py:118] Engine 000: Avg prompt throughput: 6382.2 tokens/s, Avg generation throughput: 0.3 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 4.7%
+INFO:     127.0.0.1:49062 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:21:52] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-a991fe93-5d1c-4018-875d-185d11cfe6b8-0.
+[2025-10-16 05:21:52] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 323
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:49062 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:21:55] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-0e84ffdc-c90c-4ebd-9c48-4f6ae569691e-0.
+[2025-10-16 05:21:55] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 33
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:49062 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:21:58] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-d5b941d6-767b-458a-9c7d-7670e2bb22bc-0.
+[2025-10-16 05:21:58] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 158
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:49062 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO 10-16 05:22:00 [loggers.py:118] Engine 000: Avg prompt throughput: 5489.9 tokens/s, Avg generation throughput: 0.4 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 4.7%
+[2025-10-16 05:22:01] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-4b5e5178-f560-45ca-a2c1-3aeda092fc4a-0.
+[2025-10-16 05:22:01] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 90
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:49062 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:22:04] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-86dbd95a-3c53-40fa-b415-d2e51fd4a27a-0.
+[2025-10-16 05:22:04] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 235
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:49062 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:22:07] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-5703e261-ee93-489a-bbe2-7fee27ba3ed4-0.
+[2025-10-16 05:22:07] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 389
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 378
+
+INFO:     127.0.0.1:49062 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO 10-16 05:22:10 [loggers.py:118] Engine 000: Avg prompt throughput: 4576.4 tokens/s, Avg generation throughput: 0.3 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 4.6%
+[2025-10-16 05:22:13] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-5a6a26b5-a707-46d9-a0a0-1f5b7e6194b9-0.
+[2025-10-16 05:22:13] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 252
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 210
+
+[2025-10-16 05:22:13] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-e58314d2-566f-4a2c-bb55-dab6892cbd5c-0.
+INFO:     127.0.0.1:60654 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:22:13] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 163
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:60656 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:22:16] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-46c76c3f-583e-4a5d-94b3-8c820f702c2d-0.
+[2025-10-16 05:22:16] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 19
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:60654 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:22:19] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-b6bf209f-1d01-49e1-87f2-f2d48d71eb54-0.
+[2025-10-16 05:22:19] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 190
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:60654 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO 10-16 05:22:20 [loggers.py:118] Engine 000: Avg prompt throughput: 4010.7 tokens/s, Avg generation throughput: 0.4 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 4.6%
+[2025-10-16 05:22:22] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-dbd63813-33d4-45aa-94b8-c44b6f0a29a8-0.
+[2025-10-16 05:22:22] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 184
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+[2025-10-16 05:22:23] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-3da5b4ae-4d7f-45d5-bd51-4f18223ad488-0.
+INFO:     127.0.0.1:60654 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:22:23] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 1480
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 1195
+
+[2025-10-16 05:22:27] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-efdb9122-325d-466f-92b9-c052349ea691-0.
+INFO:     127.0.0.1:60202 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:22:27] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 614
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 412
+
+INFO:     127.0.0.1:60654 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO 10-16 05:22:30 [loggers.py:118] Engine 000: Avg prompt throughput: 14590.4 tokens/s, Avg generation throughput: 0.3 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 4.3%
+[2025-10-16 05:22:31] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-1f40218a-a271-44e6-bf07-f9159981dbd9-0.
+[2025-10-16 05:22:31] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 188
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:60654 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:22:37] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-039a70d2-6e54-4e53-8c6e-a5fe2e063413-0.
+[2025-10-16 05:22:37] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 194
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:48592 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:22:40] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-b7574bcb-a2f4-4fc6-8132-29ee542c2209-0.
+[2025-10-16 05:22:40] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 17
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:48592 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO 10-16 05:22:40 [loggers.py:118] Engine 000: Avg prompt throughput: 2562.9 tokens/s, Avg generation throughput: 0.3 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 4.3%
+[2025-10-16 05:22:43] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-92c237e5-5746-4702-8828-68649bbd19a6-0.
+[2025-10-16 05:22:43] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 22
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:48592 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:22:46] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-efd14387-97c4-4795-8f31-466bd64a4391-0.
+[2025-10-16 05:22:46] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 167
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:48592 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:22:49] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-e2eb6f3c-22a0-46fc-8590-125c476a9106-0.
+[2025-10-16 05:22:49] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 19
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:48592 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:22:49] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-312c09d7-54b4-464f-b1a9-55ac4bd42167-0.
+[2025-10-16 05:22:49] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 368
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 05:22:50 [loggers.py:118] Engine 000: Avg prompt throughput: 1337.9 tokens/s, Avg generation throughput: 0.3 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 4.3%
+INFO:     127.0.0.1:59356 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:22:55] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-c1686539-0d80-4f16-943a-5b5fa48ac9cb-0.
+[2025-10-16 05:22:55] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 180
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 32
+
+INFO:     127.0.0.1:59356 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:22:58] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-21afae8b-1553-42a0-9a3a-cf857db79c97-0.
+[2025-10-16 05:22:58] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 92
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:59356 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO 10-16 05:23:00 [loggers.py:118] Engine 000: Avg prompt throughput: 4107.6 tokens/s, Avg generation throughput: 0.3 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 4.3%
+[2025-10-16 05:23:01] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-2c4e062e-1144-4fa5-b7b4-7bd3291d366b-0.
+[2025-10-16 05:23:01] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 499
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:59356 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:23:07] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-8a7adac9-859e-4220-bcf6-ace4c9a273dd-0.
+[2025-10-16 05:23:07] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 110
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 101
+
+INFO:     127.0.0.1:59356 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:23:07] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-fa7041a9-7ca5-4b9f-966c-b6fe89e96ff2-0.
+[2025-10-16 05:23:07] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 664
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 05:23:10 [loggers.py:118] Engine 000: Avg prompt throughput: 3905.5 tokens/s, Avg generation throughput: 0.2 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 4.3%
+INFO:     127.0.0.1:46094 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:23:13] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-322738b0-5e2d-4fec-a38d-bd53070683e2-0.
+[2025-10-16 05:23:13] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 15
+
+num_lookup_hits on hbm: 13
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:46094 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:23:16] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-81b39e52-bee5-459b-939c-91fa0dc22472-0.
+[2025-10-16 05:23:16] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 40
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:46094 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:23:19] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-0f2b02a3-7f16-4fbe-b5a9-0ad1a4e3a6f7-0.
+[2025-10-16 05:23:19] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 63
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:46094 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO 10-16 05:23:20 [loggers.py:118] Engine 000: Avg prompt throughput: 5015.7 tokens/s, Avg generation throughput: 0.4 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 4.2%
+[2025-10-16 05:23:22] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-5ef3f9d9-feb6-441f-9e0e-e1b392f44eab-0.
+[2025-10-16 05:23:22] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 1103
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 05:23:30 [loggers.py:118] Engine 000: Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 0.0 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 4.2%
+[2025-10-16 05:23:30] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-f802d748-bfab-4f79-a69e-f0df56da0dc4-0.
+INFO:     127.0.0.1:46094 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:23:30] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 434
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+[2025-10-16 05:23:32] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-b73eac96-e640-4ecd-8f30-fd13a96afc38-0.
+INFO:     127.0.0.1:51200 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46094 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:23:34] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-98c5e233-b886-42b1-93b1-4eb887d8e380-0.
+[2025-10-16 05:23:34] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 196
+
+num_lookup_hits on hbm: 190
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:46094 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:23:37] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-d7d43ee9-9cb8-49c0-81fc-06ada0806bc9-0.
+[2025-10-16 05:23:37] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 83
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 67
+
+INFO:     127.0.0.1:46094 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:23:40] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-25a8bace-5427-4b52-acf7-42f7da109376-0.
+[2025-10-16 05:23:40] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 14
+
+num_lookup_hits on hbm: 12
+
+num_lookup_hits on storage except hbm: 2
+
+INFO:     127.0.0.1:46094 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO 10-16 05:23:40 [loggers.py:118] Engine 000: Avg prompt throughput: 11822.6 tokens/s, Avg generation throughput: 0.6 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 4.7%
+[2025-10-16 05:23:43] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-2efe52b0-46c9-4527-9796-93d604499fd4-0.
+[2025-10-16 05:23:43] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 364
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:46094 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:23:46] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-8595ccae-9ab3-4209-b13b-a2fab4586eeb-0.
+[2025-10-16 05:23:46] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 208
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 202
+
+INFO:     127.0.0.1:46094 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:23:49] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-def53172-4bc3-4bd9-b9f6-d8a43e93f5f5-0.
+[2025-10-16 05:23:49] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 500
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 463
+
+INFO:     127.0.0.1:46094 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO 10-16 05:23:50 [loggers.py:118] Engine 000: Avg prompt throughput: 6870.6 tokens/s, Avg generation throughput: 0.3 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 4.6%
+[2025-10-16 05:23:52] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-e55edf72-8f53-4a3a-a1ac-ec2de975b238-0.
+[2025-10-16 05:23:52] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 176
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:46094 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:23:58] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-ebc7d0d6-af3e-4e36-b00a-52456f26a62f-0.
+[2025-10-16 05:23:58] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 128
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:50450 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO 10-16 05:24:00 [loggers.py:118] Engine 000: Avg prompt throughput: 1949.8 tokens/s, Avg generation throughput: 0.2 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 4.6%
+[2025-10-16 05:24:01] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-b75a579a-6b99-417b-8107-3842dd3be534-0.
+[2025-10-16 05:24:01] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 66
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 41
+
+INFO:     127.0.0.1:50450 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:24:04] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-af0520fc-e4fb-4fa3-b7c3-afe87a1a785a-0.
+[2025-10-16 05:24:04] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 317
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:50450 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:24:07] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-d6a884f1-3cbb-4d7f-8352-2750b0ffa038-0.
+[2025-10-16 05:24:07] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 45
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:50450 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:24:10] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-38db816e-fa0c-4ca9-9f84-70233d8fb9dc-0.
+[2025-10-16 05:24:10] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 103
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 05:24:10 [loggers.py:118] Engine 000: Avg prompt throughput: 2745.8 tokens/s, Avg generation throughput: 0.3 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 4.6%
+[2025-10-16 05:24:10] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-ae45ff92-64be-463b-bbaa-95cfa8a81db3-0.
+INFO:     127.0.0.1:50450 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:24:10] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 217
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:60488 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:24:13] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-acfe375a-df66-44e8-85be-59d4a18d2244-0.
+[2025-10-16 05:24:13] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 356
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 332
+
+INFO:     127.0.0.1:50450 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:24:19] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-6c35c31c-d647-4c94-b337-e32504dbe375-0.
+[2025-10-16 05:24:19] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 15
+
+num_lookup_hits on hbm: 13
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:60496 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO 10-16 05:24:20 [loggers.py:118] Engine 000: Avg prompt throughput: 4431.6 tokens/s, Avg generation throughput: 0.4 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 4.6%
+[2025-10-16 05:24:22] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-8f6d0eef-66fb-4730-a43b-b4187bedcf28-0.
+[2025-10-16 05:24:22] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 124
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:60496 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:24:25] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-a1e28a71-2377-48e4-a65e-491790887726-0.
+[2025-10-16 05:24:25] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 54
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:60496 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:24:28] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-5b686d24-4129-49ff-8720-d868ed1dc2f4-0.
+[2025-10-16 05:24:28] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 424
+
+num_lookup_hits on hbm: 390
+
+num_lookup_hits on storage except hbm: 19
+
+INFO:     127.0.0.1:60496 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO 10-16 05:24:30 [loggers.py:118] Engine 000: Avg prompt throughput: 3860.3 tokens/s, Avg generation throughput: 0.3 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 5.6%
+[2025-10-16 05:24:34] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-3e539222-65e4-40d6-a8c5-1704a5a75be8-0.
+[2025-10-16 05:24:34] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 63
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+[2025-10-16 05:24:34] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-fe67d846-34da-41b4-8c5f-9e51140cd0df-0.
+INFO:     127.0.0.1:55490 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:24:34] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 249
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:55496 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:24:37] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-3f67bd73-2a65-4228-80aa-b152322e28cf-0.
+[2025-10-16 05:24:37] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 154
+
+num_lookup_hits on hbm: 47
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:55490 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 05:24:40] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-7ac1d7d7-956a-44c5-8017-1013a0d0b0da-0.
+[2025-10-16 05:24:40] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 14
+
+num_lookup_hits on hbm: 12
+
+num_lookup_hits on storage except hbm: 2
+
+INFO:     127.0.0.1:55490 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO 10-16 05:24:40 [loggers.py:118] Engine 000: Avg prompt throughput: 3081.5 tokens/s, Avg generation throughput: 0.4 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 5.7%
+INFO 10-16 05:24:50 [loggers.py:118] Engine 000: Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 0.0 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 5.7%
+INFO 10-16 05:24:59 [launcher.py:80] Shutting down FastAPI HTTP server.
+[rank0]:[W1016 05:24:59.372652650 ProcessGroupNCCL.cpp:1476] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.

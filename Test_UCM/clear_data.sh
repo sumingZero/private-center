@@ -1,0 +1,1 @@
+rm -rf /home/share/yuhui-test/test1/data

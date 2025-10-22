@@ -1,0 +1,1827 @@
+INFO 10-16 22:19:43 [__init__.py:244] Automatically detected platform cuda.
+INFO 10-16 22:19:48 [api_server.py:1395] vLLM API server version 0.9.2
+INFO 10-16 22:19:48 [cli_args.py:325] non-default args: {'port': 7883, 'model': '/home/models/DeepSeek-V2-Lite', 'trust_remote_code': True, 'max_model_len': 150000, 'block_size': 128, 'gpu_memory_utilization': 0.85, 'enable_prefix_caching': True, 'max_num_batched_tokens': 32768, 'max_num_seqs': 64, 'long_prefill_token_threshold': 128, 'kv_transfer_config': KVTransferConfig(kv_connector='UnifiedCacheConnectorV1', engine_id='959e4c37-a83f-4e27-b4e3-20020ed48c91', kv_buffer_device='cuda', kv_buffer_size=1000000000.0, kv_role='kv_both', kv_rank=None, kv_parallel_size=1, kv_ip='127.0.0.1', kv_port=14579, kv_connector_extra_config={'ucm_connector_name': 'UcmNfsStore', 'ucm_connector_config': {'storage_backends': '/home/share/yuhui-test/test1'}}, kv_connector_module_path='ucm.integration.vllm.uc_connector'), 'disable_log_requests': True}
+INFO 10-16 22:19:48 [config.py:240] Replacing legacy 'type' key with 'rope_type'
+INFO 10-16 22:19:56 [config.py:841] This model supports multiple tasks: {'generate', 'embed', 'reward', 'classify'}. Defaulting to 'generate'.
+INFO 10-16 22:19:56 [config.py:1472] Using max model len 150000
+INFO 10-16 22:19:56 [config.py:2285] Chunked prefill is enabled with max_num_batched_tokens=32768.
+INFO 10-16 22:19:56 [cuda.py:165] Forcing kv cache block size to 64 for FlashMLA backend.
+INFO 10-16 22:20:00 [__init__.py:244] Automatically detected platform cuda.
+INFO 10-16 22:20:04 [core.py:526] Waiting for init message from front-end.
+INFO 10-16 22:20:04 [core.py:69] Initializing a V1 LLM engine (v0.9.2) with config: model='/home/models/DeepSeek-V2-Lite', speculative_config=None, tokenizer='/home/models/DeepSeek-V2-Lite', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config={}, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=150000, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=/home/models/DeepSeek-V2-Lite, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":[],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output"],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"max_capture_size":512,"local_cache_dir":null}
+INFO 10-16 22:20:09 [parallel_state.py:1076] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+INFO 10-16 22:20:09 [factory.py:74] Creating v1 connector with name: UnifiedCacheConnectorV1 and engine_id: 959e4c37-a83f-4e27-b4e3-20020ed48c91
+WARNING 10-16 22:20:09 [base.py:71] Initializing KVConnectorBase_V1. This API is experimental and subject to change in the future as we iterate the design.
+[2025-10-16 22:20:09] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:142] kv_block_size = 1990656, io_size = 73728,
+[2025-10-16 22:20:09] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:147] init UCConnectorImpl, connector: UcmNfsStore
+[2025-10-16 22:20:09] - ucm.store.factory - INFO [factory.py:56] Creating connector with name: UcmNfsStore
+[2025-10-16 22:20:09.504084][UC][I] NFSStore-(Release). [216284,216284][nfsstore.cc:104,ShowConfig]
+[2025-10-16 22:20:09.504139][UC][I] Set UC::StorageBackends to ["/home/share/yuhui-test/test1"]. [216284,216284][nfsstore.cc:105,ShowConfig]
+[2025-10-16 22:20:09.504144][UC][I] Set UC::BlockSize to 1990656. [216284,216284][nfsstore.cc:106,ShowConfig]
+[2025-10-16 22:20:09.504146][UC][I] Set UC::TransferEnable to true. [216284,216284][nfsstore.cc:107,ShowConfig]
+[2025-10-16 22:20:09.504149][UC][I] Set UC::DeviceId to 0. [216284,216284][nfsstore.cc:108,ShowConfig]
+[2025-10-16 22:20:09.504151][UC][I] Set UC::StreamNumber to 32. [216284,216284][nfsstore.cc:109,ShowConfig]
+[2025-10-16 22:20:09.504154][UC][I] Set UC::IOSize to 73728. [216284,216284][nfsstore.cc:110,ShowConfig]
+[2025-10-16 22:20:09.504156][UC][I] Set UC::BufferNumber to 512. [216284,216284][nfsstore.cc:111,ShowConfig]
+[2025-10-16 22:20:09.504158][UC][I] Set UC::TimeoutMs to 30000. [216284,216284][nfsstore.cc:112,ShowConfig]
+INFO 10-16 22:20:09 [topk_topp_sampler.py:49] Using FlashInfer for top-p & top-k sampling.
+INFO 10-16 22:20:09 [gpu_model_runner.py:1858] Starting to load model /home/models/DeepSeek-V2-Lite...
+INFO 10-16 22:20:09 [gpu_model_runner.py:1863] Loading model from scratch...
+INFO 10-16 22:20:09 [cuda.py:228] Using FlashMLA backend on V1 engine.
+Loading safetensors checkpoint shards:   0% Completed | 0/4 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  25% Completed | 1/4 [00:01<00:04,  1.34s/it]
+Loading safetensors checkpoint shards:  50% Completed | 2/4 [00:03<00:03,  1.82s/it]
+Loading safetensors checkpoint shards:  75% Completed | 3/4 [00:05<00:02,  2.08s/it]
+Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:08<00:00,  2.19s/it]
+Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:08<00:00,  2.06s/it]
+
+INFO 10-16 22:20:18 [default_loader.py:272] Loading weights took 8.57 seconds
+INFO 10-16 22:20:19 [gpu_model_runner.py:1889] Model loading took 29.3011 GiB and 8.792473 seconds
+INFO 10-16 22:20:24 [backends.py:508] Using cache directory: /root/.cache/vllm/torch_compile_cache/da1c78e869/rank_0_0/backbone for vLLM's torch.compile
+INFO 10-16 22:20:24 [backends.py:519] Dynamo bytecode transform time: 5.08 s
+INFO 10-16 22:20:28 [backends.py:155] Directly load the compiled graph(s) for shape None from the cache, took 3.552 s
+WARNING 10-16 22:20:29 [fused_moe.py:690] Using default MoE config. Performance might be sub-optimal! Config file not found at /usr/local/lib/python3.12/dist-packages/vllm/model_executor/layers/fused_moe/configs/E=64,N=1408,device_name=NVIDIA_H20.json
+INFO 10-16 22:20:29 [monitor.py:34] torch.compile takes 5.08 s in total
+/usr/local/lib/python3.12/dist-packages/torch/utils/cpp_extension.py:2356: UserWarning: TORCH_CUDA_ARCH_LIST is not set, all archs for visible cards are included for compilation. 
+If this is not desired, please set os.environ['TORCH_CUDA_ARCH_LIST'].
+  warnings.warn(
+INFO 10-16 22:20:31 [gpu_worker.py:235] Available KV cache memory: 48.78 GiB
+INFO 10-16 22:20:31 [kv_cache_utils.py:716] GPU KV cache size: 1,683,904 tokens
+INFO 10-16 22:20:31 [kv_cache_utils.py:720] Maximum concurrency for 150,000 tokens per request: 11.22x
+Capturing CUDA graph shapes:   0%|          | 0/67 [00:00<?, ?it/s]Capturing CUDA graph shapes:   1%|▏         | 1/67 [00:00<00:22,  2.99it/s]Capturing CUDA graph shapes:   3%|▎         | 2/67 [00:00<00:21,  2.99it/s]Capturing CUDA graph shapes:   4%|▍         | 3/67 [00:01<00:21,  2.94it/s]Capturing CUDA graph shapes:   6%|▌         | 4/67 [00:01<00:21,  3.00it/s]Capturing CUDA graph shapes:   7%|▋         | 5/67 [00:01<00:20,  2.97it/s]Capturing CUDA graph shapes:   9%|▉         | 6/67 [00:02<00:20,  3.00it/s]Capturing CUDA graph shapes:  10%|█         | 7/67 [00:02<00:19,  3.03it/s]Capturing CUDA graph shapes:  12%|█▏        | 8/67 [00:02<00:19,  3.02it/s]Capturing CUDA graph shapes:  13%|█▎        | 9/67 [00:02<00:19,  3.02it/s]Capturing CUDA graph shapes:  15%|█▍        | 10/67 [00:03<00:18,  3.02it/s]Capturing CUDA graph shapes:  16%|█▋        | 11/67 [00:03<00:18,  3.02it/s]Capturing CUDA graph shapes:  18%|█▊        | 12/67 [00:03<00:18,  3.04it/s]Capturing CUDA graph shapes:  19%|█▉        | 13/67 [00:04<00:17,  3.05it/s]Capturing CUDA graph shapes:  21%|██        | 14/67 [00:04<00:17,  3.03it/s]Capturing CUDA graph shapes:  22%|██▏       | 15/67 [00:04<00:17,  3.03it/s]Capturing CUDA graph shapes:  24%|██▍       | 16/67 [00:05<00:16,  3.03it/s]Capturing CUDA graph shapes:  25%|██▌       | 17/67 [00:05<00:16,  3.01it/s]Capturing CUDA graph shapes:  27%|██▋       | 18/67 [00:05<00:16,  3.02it/s]Capturing CUDA graph shapes:  28%|██▊       | 19/67 [00:06<00:15,  3.04it/s]Capturing CUDA graph shapes:  30%|██▉       | 20/67 [00:06<00:15,  3.03it/s]Capturing CUDA graph shapes:  31%|███▏      | 21/67 [00:06<00:15,  3.00it/s]Capturing CUDA graph shapes:  33%|███▎      | 22/67 [00:07<00:15,  2.97it/s]Capturing CUDA graph shapes:  34%|███▍      | 23/67 [00:07<00:14,  2.96it/s]Capturing CUDA graph shapes:  36%|███▌      | 24/67 [00:07<00:14,  2.99it/s]Capturing CUDA graph shapes:  37%|███▋      | 25/67 [00:08<00:14,  2.98it/s]Capturing CUDA graph shapes:  39%|███▉      | 26/67 [00:08<00:13,  2.99it/s]Capturing CUDA graph shapes:  40%|████      | 27/67 [00:08<00:13,  2.99it/s]Capturing CUDA graph shapes:  42%|████▏     | 28/67 [00:09<00:12,  3.01it/s]Capturing CUDA graph shapes:  43%|████▎     | 29/67 [00:09<00:12,  3.00it/s]Capturing CUDA graph shapes:  45%|████▍     | 30/67 [00:09<00:12,  3.00it/s]Capturing CUDA graph shapes:  46%|████▋     | 31/67 [00:10<00:12,  3.00it/s]Capturing CUDA graph shapes:  48%|████▊     | 32/67 [00:10<00:11,  2.99it/s]Capturing CUDA graph shapes:  49%|████▉     | 33/67 [00:10<00:11,  2.97it/s]Capturing CUDA graph shapes:  51%|█████     | 34/67 [00:11<00:11,  2.98it/s]Capturing CUDA graph shapes:  52%|█████▏    | 35/67 [00:11<00:10,  2.97it/s]Capturing CUDA graph shapes:  54%|█████▎    | 36/67 [00:11<00:10,  2.99it/s]Capturing CUDA graph shapes:  55%|█████▌    | 37/67 [00:12<00:10,  2.99it/s]Capturing CUDA graph shapes:  57%|█████▋    | 38/67 [00:12<00:09,  2.97it/s]Capturing CUDA graph shapes:  58%|█████▊    | 39/67 [00:13<00:09,  2.97it/s]Capturing CUDA graph shapes:  60%|█████▉    | 40/67 [00:13<00:09,  2.96it/s]Capturing CUDA graph shapes:  61%|██████    | 41/67 [00:13<00:08,  2.95it/s]Capturing CUDA graph shapes:  63%|██████▎   | 42/67 [00:14<00:08,  2.97it/s]Capturing CUDA graph shapes:  64%|██████▍   | 43/67 [00:14<00:08,  2.99it/s]Capturing CUDA graph shapes:  66%|██████▌   | 44/67 [00:14<00:07,  2.96it/s]Capturing CUDA graph shapes:  67%|██████▋   | 45/67 [00:15<00:07,  2.95it/s]Capturing CUDA graph shapes:  69%|██████▊   | 46/67 [00:15<00:07,  2.95it/s]Capturing CUDA graph shapes:  70%|███████   | 47/67 [00:15<00:06,  2.88it/s]Capturing CUDA graph shapes:  72%|███████▏  | 48/67 [00:16<00:06,  2.92it/s]Capturing CUDA graph shapes:  73%|███████▎  | 49/67 [00:16<00:06,  2.92it/s]Capturing CUDA graph shapes:  75%|███████▍  | 50/67 [00:16<00:05,  2.92it/s]Capturing CUDA graph shapes:  76%|███████▌  | 51/67 [00:17<00:05,  2.92it/s]Capturing CUDA graph shapes:  78%|███████▊  | 52/67 [00:17<00:05,  2.93it/s]Capturing CUDA graph shapes:  79%|███████▉  | 53/67 [00:17<00:04,  2.92it/s]Capturing CUDA graph shapes:  81%|████████  | 54/67 [00:18<00:04,  2.94it/s]Capturing CUDA graph shapes:  82%|████████▏ | 55/67 [00:18<00:04,  2.93it/s]Capturing CUDA graph shapes:  84%|████████▎ | 56/67 [00:18<00:03,  2.93it/s]Capturing CUDA graph shapes:  85%|████████▌ | 57/67 [00:19<00:03,  2.91it/s]Capturing CUDA graph shapes:  87%|████████▋ | 58/67 [00:19<00:03,  2.91it/s]Capturing CUDA graph shapes:  88%|████████▊ | 59/67 [00:19<00:02,  2.91it/s]Capturing CUDA graph shapes:  90%|████████▉ | 60/67 [00:20<00:02,  2.92it/s]Capturing CUDA graph shapes:  91%|█████████ | 61/67 [00:20<00:02,  2.91it/s]Capturing CUDA graph shapes:  93%|█████████▎| 62/67 [00:20<00:01,  2.92it/s]Capturing CUDA graph shapes:  94%|█████████▍| 63/67 [00:21<00:01,  2.89it/s]Capturing CUDA graph shapes:  96%|█████████▌| 64/67 [00:21<00:01,  2.90it/s]Capturing CUDA graph shapes:  97%|█████████▋| 65/67 [00:21<00:00,  2.91it/s]Capturing CUDA graph shapes:  99%|█████████▊| 66/67 [00:22<00:00,  2.93it/s]Capturing CUDA graph shapes: 100%|██████████| 67/67 [00:22<00:00,  2.70it/s]Capturing CUDA graph shapes: 100%|██████████| 67/67 [00:22<00:00,  2.95it/s]
+INFO 10-16 22:20:54 [gpu_model_runner.py:2414] Graph capturing finished in 23 secs, took 0.88 GiB
+INFO 10-16 22:20:54 [core.py:172] init engine (profile, create kv cache, warmup model) took 35.20 seconds
+INFO 10-16 22:20:54 [factory.py:74] Creating v1 connector with name: UnifiedCacheConnectorV1 and engine_id: 959e4c37-a83f-4e27-b4e3-20020ed48c91
+WARNING 10-16 22:20:54 [base.py:71] Initializing KVConnectorBase_V1. This API is experimental and subject to change in the future as we iterate the design.
+[2025-10-16 22:20:54] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:142] kv_block_size = 1990656, io_size = 73728,
+[2025-10-16 22:20:54] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:147] init UCConnectorImpl, connector: UcmNfsStore
+[2025-10-16 22:20:54] - ucm.store.factory - INFO [factory.py:56] Creating connector with name: UcmNfsStore
+[2025-10-16 22:20:54.588636][UC][I] NFSStore-(Release). [216284,216284][nfsstore.cc:104,ShowConfig]
+[2025-10-16 22:20:54.588661][UC][I] Set UC::StorageBackends to ["/home/share/yuhui-test/test1"]. [216284,216284][nfsstore.cc:105,ShowConfig]
+[2025-10-16 22:20:54.588664][UC][I] Set UC::BlockSize to 1990656. [216284,216284][nfsstore.cc:106,ShowConfig]
+[2025-10-16 22:20:54.588667][UC][I] Set UC::TransferEnable to false. [216284,216284][nfsstore.cc:107,ShowConfig]
+[2025-10-16 22:20:54.588670][UC][I] Set UC::DeviceId to -1. [216284,216284][nfsstore.cc:108,ShowConfig]
+[2025-10-16 22:20:54.588672][UC][I] Set UC::StreamNumber to 32. [216284,216284][nfsstore.cc:109,ShowConfig]
+[2025-10-16 22:20:54.588675][UC][I] Set UC::IOSize to 262144. [216284,216284][nfsstore.cc:110,ShowConfig]
+[2025-10-16 22:20:54.588678][UC][I] Set UC::BufferNumber to 512. [216284,216284][nfsstore.cc:111,ShowConfig]
+[2025-10-16 22:20:54.588680][UC][I] Set UC::TimeoutMs to 30000. [216284,216284][nfsstore.cc:112,ShowConfig]
+INFO 10-16 22:20:54 [loggers.py:137] Engine 000: vllm cache_config_info with initialization after num_gpu_blocks is: 26311
+WARNING 10-16 22:20:54 [config.py:1392] Default sampling parameters have been overridden by the model's Hugging Face generation config recommended from the model creator. If this is not intended, please relaunch vLLM instance with `--generation-config vllm`.
+INFO 10-16 22:20:54 [serving_chat.py:125] Using default chat sampling params from model: {'temperature': 0.3, 'top_p': 0.95}
+INFO 10-16 22:20:54 [serving_completion.py:72] Using default completion sampling params from model: {'temperature': 0.3, 'top_p': 0.95}
+INFO 10-16 22:20:54 [api_server.py:1457] Starting vLLM API server 0 on http://0.0.0.0:7883
+INFO 10-16 22:20:54 [launcher.py:29] Available routes are:
+INFO 10-16 22:20:54 [launcher.py:37] Route: /openapi.json, Methods: GET, HEAD
+INFO 10-16 22:20:54 [launcher.py:37] Route: /docs, Methods: GET, HEAD
+INFO 10-16 22:20:54 [launcher.py:37] Route: /docs/oauth2-redirect, Methods: GET, HEAD
+INFO 10-16 22:20:54 [launcher.py:37] Route: /redoc, Methods: GET, HEAD
+INFO 10-16 22:20:54 [launcher.py:37] Route: /health, Methods: GET
+INFO 10-16 22:20:54 [launcher.py:37] Route: /load, Methods: GET
+INFO 10-16 22:20:54 [launcher.py:37] Route: /ping, Methods: POST
+INFO 10-16 22:20:54 [launcher.py:37] Route: /ping, Methods: GET
+INFO 10-16 22:20:54 [launcher.py:37] Route: /tokenize, Methods: POST
+INFO 10-16 22:20:54 [launcher.py:37] Route: /detokenize, Methods: POST
+INFO 10-16 22:20:54 [launcher.py:37] Route: /v1/models, Methods: GET
+INFO 10-16 22:20:54 [launcher.py:37] Route: /version, Methods: GET
+INFO 10-16 22:20:54 [launcher.py:37] Route: /v1/chat/completions, Methods: POST
+INFO 10-16 22:20:54 [launcher.py:37] Route: /v1/completions, Methods: POST
+INFO 10-16 22:20:54 [launcher.py:37] Route: /v1/embeddings, Methods: POST
+INFO 10-16 22:20:54 [launcher.py:37] Route: /pooling, Methods: POST
+INFO 10-16 22:20:54 [launcher.py:37] Route: /classify, Methods: POST
+INFO 10-16 22:20:54 [launcher.py:37] Route: /score, Methods: POST
+INFO 10-16 22:20:54 [launcher.py:37] Route: /v1/score, Methods: POST
+INFO 10-16 22:20:54 [launcher.py:37] Route: /v1/audio/transcriptions, Methods: POST
+INFO 10-16 22:20:54 [launcher.py:37] Route: /v1/audio/translations, Methods: POST
+INFO 10-16 22:20:54 [launcher.py:37] Route: /rerank, Methods: POST
+INFO 10-16 22:20:54 [launcher.py:37] Route: /v1/rerank, Methods: POST
+INFO 10-16 22:20:54 [launcher.py:37] Route: /v2/rerank, Methods: POST
+INFO 10-16 22:20:54 [launcher.py:37] Route: /invocations, Methods: POST
+INFO 10-16 22:20:54 [launcher.py:37] Route: /metrics, Methods: GET
+INFO:     Started server process [214416]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:44060 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58852 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58868 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39584 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59760 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47252 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53234 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46038 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60204 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59528 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56150 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39890 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60588 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49850 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43668 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51296 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56994 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35480 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43818 - "GET /health HTTP/1.1" 200 OK
+WARNING 10-16 22:23:50 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:35896 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:23:50] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-2ccbf5b22cbe4a1c9589dda13e57a3b6-0.
+[2025-10-16 22:23:50] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 114
+
+num_lookup_hits on hbm: 0
+
+num_lookup_hits on storage except hbm: 6
+
+WARNING 10-16 22:23:53 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:35910 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:23:53] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-aa176321c514426e821a32167e4a29d4-0.
+[2025-10-16 22:23:53] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 14
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 22:23:54 [loggers.py:118] Engine 000: Avg prompt throughput: 823.9 tokens/s, Avg generation throughput: 43.0 tokens/s, Running: 2 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.5%, Prefix cache hit rate: 4.7%
+INFO:     127.0.0.1:35918 - "GET /health HTTP/1.1" 200 OK
+WARNING 10-16 22:23:56 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:35910 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:23:56] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-09f0407d43504e0aa6e63ecbdb32324b-0.
+[2025-10-16 22:23:56] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 89
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+WARNING 10-16 22:24:02 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:35910 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:24:02] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-036a2cd3d1e847c991cbb9466d3fa6b4-0.
+[2025-10-16 22:24:02] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 29
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 22:24:04 [loggers.py:118] Engine 000: Avg prompt throughput: 761.5 tokens/s, Avg generation throughput: 143.7 tokens/s, Running: 1 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.1%, Prefix cache hit rate: 7.3%
+INFO:     127.0.0.1:53696 - "GET /health HTTP/1.1" 200 OK
+WARNING 10-16 22:24:05 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:53700 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:24:05] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-c3c948b171d44f48b7308b820493749b-0.
+[2025-10-16 22:24:05] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 84
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+WARNING 10-16 22:24:08 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:35910 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:24:08] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-6bc73156960a454a9f609a1042094058-0.
+[2025-10-16 22:24:08] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 124
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 22:24:14 [loggers.py:118] Engine 000: Avg prompt throughput: 1332.7 tokens/s, Avg generation throughput: 104.6 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 6.6%
+WARNING 10-16 22:24:14 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:51080 - "GET /health HTTP/1.1" 200 OK
+Token indices sequence length is longer than the specified maximum sequence length for this model (26892 > 16384). Running this sequence through the model will result in indexing errors
+INFO:     127.0.0.1:35910 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:24:15] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-bdb7ba1287df401c968457b54f26385a-0.
+[2025-10-16 22:24:15] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 420
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+WARNING 10-16 22:24:17 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:51096 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:24:17] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-710598785b79411390440935d85f5bc0-0.
+[2025-10-16 22:24:17] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 247
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+WARNING 10-16 22:24:23 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:60590 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:24:24] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-b50f6f3002274e3983911a66141237ab-0.
+[2025-10-16 22:24:24] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 272
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 22:24:24 [loggers.py:118] Engine 000: Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 0.0 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 6.6%
+INFO:     127.0.0.1:60596 - "GET /health HTTP/1.1" 200 OK
+WARNING 10-16 22:24:26 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:60602 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:24:27] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-be6c3d3430e4435aa8cb311abc79699e-0.
+[2025-10-16 22:24:27] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 134
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+WARNING 10-16 22:24:29 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:35910 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:24:30] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-7acb9c0b678a4d75a036a6b76dfb26b1-0.
+[2025-10-16 22:24:30] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 356
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 22:24:34 [loggers.py:118] Engine 000: Avg prompt throughput: 5136.1 tokens/s, Avg generation throughput: 11.0 tokens/s, Running: 4 reqs, Waiting: 0 reqs, GPU KV cache usage: 2.8%, Prefix cache hit rate: 3.2%
+INFO:     127.0.0.1:32862 - "GET /health HTTP/1.1" 200 OK
+WARNING 10-16 22:24:35 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:32866 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:24:35] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-50d91888a49b464ab65f5b8eead5040b-0.
+[2025-10-16 22:24:35] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 14
+
+num_lookup_hits on hbm: 12
+
+num_lookup_hits on storage except hbm: 0
+
+WARNING 10-16 22:24:38 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:60590 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:24:39] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-90c632924929401e8645c46b8fdc0242-0.
+[2025-10-16 22:24:39] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 780
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 204
+
+INFO 10-16 22:24:44 [loggers.py:118] Engine 000: Avg prompt throughput: 4115.8 tokens/s, Avg generation throughput: 38.6 tokens/s, Running: 5 reqs, Waiting: 0 reqs, GPU KV cache usage: 4.0%, Prefix cache hit rate: 2.9%
+WARNING 10-16 22:24:44 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:34334 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34346 - "GET /health HTTP/1.1" 200 OK
+[2025-10-16 22:24:44] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-2cc5b72786ee4bc1b41670ac7250c6c2-0.
+[2025-10-16 22:24:44] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 79
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+WARNING 10-16 22:24:50 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:57770 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:24:50] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-9d6f216ecb4243fa820369883e4dc2da-0.
+[2025-10-16 22:24:50] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 13
+
+num_lookup_hits on hbm: 12
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 22:24:54 [loggers.py:118] Engine 000: Avg prompt throughput: 599.6 tokens/s, Avg generation throughput: 51.9 tokens/s, Running: 7 reqs, Waiting: 0 reqs, GPU KV cache usage: 5.1%, Prefix cache hit rate: 3.5%
+INFO:     127.0.0.1:57782 - "GET /health HTTP/1.1" 200 OK
+WARNING 10-16 22:24:56 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:57792 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:24:56] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-fb79c68fc558466881736133d79fdc71-0.
+[2025-10-16 22:24:56] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 15
+
+num_lookup_hits on hbm: 12
+
+num_lookup_hits on storage except hbm: 0
+
+WARNING 10-16 22:24:59 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:53494 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:24:59] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-0b37fb2d2a0f4ba1816e19a788043739-0.
+[2025-10-16 22:24:59] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 76
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+WARNING 10-16 22:25:02 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:53506 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:25:02] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-f91eea8027be4d53a63d224e74e39ddd-0.
+[2025-10-16 22:25:02] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 132
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 22:25:04 [loggers.py:118] Engine 000: Avg prompt throughput: 97.9 tokens/s, Avg generation throughput: 52.6 tokens/s, Running: 10 reqs, Waiting: 0 reqs, GPU KV cache usage: 6.1%, Prefix cache hit rate: 4.0%
+INFO:     127.0.0.1:53508 - "GET /health HTTP/1.1" 200 OK
+WARNING 10-16 22:25:05 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:53518 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:25:06] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-a082038341b24a99814e89e1a6fa3cf7-0.
+[2025-10-16 22:25:06] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 79
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+WARNING 10-16 22:25:08 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:53524 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:25:09] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-383b40e86d29402ebf78fd9a5fd6cd68-0.
+[2025-10-16 22:25:09] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 411
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+WARNING 10-16 22:25:11 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:46316 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:25:12] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-67e97eb528574e67987efffaaf2884f2-0.
+[2025-10-16 22:25:12] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 205
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 33
+
+INFO 10-16 22:25:14 [loggers.py:118] Engine 000: Avg prompt throughput: 6837.7 tokens/s, Avg generation throughput: 67.3 tokens/s, Running: 12 reqs, Waiting: 0 reqs, GPU KV cache usage: 7.4%, Prefix cache hit rate: 3.7%
+WARNING 10-16 22:25:14 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:46328 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53506 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:25:15] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-bb38d44fec4e4b38a98682b486ded6b2-0.
+[2025-10-16 22:25:15] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 1404
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+WARNING 10-16 22:25:17 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:46330 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:25:18] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-4161338d1e4345649a949f48cd59de40-0.
+[2025-10-16 22:25:18] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 231
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+WARNING 10-16 22:25:20 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:35202 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:25:21] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-aa7b0d6ab2e24dd99d389190717c92c5-0.
+[2025-10-16 22:25:21] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 426
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 22:25:24 [loggers.py:118] Engine 000: Avg prompt throughput: 1312.2 tokens/s, Avg generation throughput: 102.5 tokens/s, Running: 14 reqs, Waiting: 0 reqs, GPU KV cache usage: 10.0%, Prefix cache hit rate: 2.7%
+INFO:     127.0.0.1:35206 - "GET /health HTTP/1.1" 200 OK
+WARNING 10-16 22:25:26 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:35218 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:25:27] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-d119409d1d204db088064c6119c23699-0.
+[2025-10-16 22:25:27] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 216
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+WARNING 10-16 22:25:29 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:43438 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:25:30] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-d99806997bbb4807afb3aa05256fca91-0.
+[2025-10-16 22:25:30] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 788
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+WARNING 10-16 22:25:32 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:43452 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:25:33] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-18885d87d960433d838d1e88599bddaa-0.
+[2025-10-16 22:25:33] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 1050
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 22:25:34 [loggers.py:118] Engine 000: Avg prompt throughput: 1479.4 tokens/s, Avg generation throughput: 54.5 tokens/s, Running: 16 reqs, Waiting: 0 reqs, GPU KV cache usage: 9.2%, Prefix cache hit rate: 2.2%
+INFO:     127.0.0.1:43460 - "GET /health HTTP/1.1" 200 OK
+WARNING 10-16 22:25:38 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:53524 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:25:39] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-12518b2c5780491e83759f61410d3482-0.
+[2025-10-16 22:25:39] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 196
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+WARNING 10-16 22:25:41 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:34334 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:25:42] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-c555204dfe5d4cfe8f85ea54b3fc5d7d-0.
+[2025-10-16 22:25:42] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 149
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 22:25:44 [loggers.py:118] Engine 000: Avg prompt throughput: 2635.5 tokens/s, Avg generation throughput: 49.0 tokens/s, Running: 13 reqs, Waiting: 0 reqs, GPU KV cache usage: 7.0%, Prefix cache hit rate: 2.3%
+WARNING 10-16 22:25:44 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:56752 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35910 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:25:45] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-f6e75dd0318f4b5b9cd7854d1978453e-0.
+[2025-10-16 22:25:45] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 1806
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+WARNING 10-16 22:25:50 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:46316 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:25:51] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-1eac557ce2854fed8cb78cb9e459b211-0.
+[2025-10-16 22:25:51] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 295
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 22:25:54 [loggers.py:118] Engine 000: Avg prompt throughput: 1388.3 tokens/s, Avg generation throughput: 24.3 tokens/s, Running: 14 reqs, Waiting: 0 reqs, GPU KV cache usage: 8.5%, Prefix cache hit rate: 1.9%
+INFO:     127.0.0.1:34580 - "GET /health HTTP/1.1" 200 OK
+WARNING 10-16 22:25:56 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:34582 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:25:57] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-3d6f0398c0054215a94166b9e4444e45-0.
+[2025-10-16 22:25:57] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 103
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+WARNING 10-16 22:25:59 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:57770 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:26:00] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-ad985157af5a4815b63d77591c0c8f69-0.
+[2025-10-16 22:26:00] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 259
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+WARNING 10-16 22:26:02 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:48396 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:26:03] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-3d421b2c16d742e28c7e8403273976ef-0.
+[2025-10-16 22:26:03] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 182
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 22:26:04 [loggers.py:118] Engine 000: Avg prompt throughput: 4941.4 tokens/s, Avg generation throughput: 19.1 tokens/s, Running: 15 reqs, Waiting: 0 reqs, GPU KV cache usage: 10.4%, Prefix cache hit rate: 2.0%
+INFO:     127.0.0.1:48400 - "GET /health HTTP/1.1" 200 OK
+WARNING 10-16 22:26:08 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:57792 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:26:08] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-3d96379f16844068bb23138a8e70bf78-0.
+[2025-10-16 22:26:08] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 17
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+WARNING 10-16 22:26:11 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:54608 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:26:11] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-9010ae58409a4578be3cb715adefa7d2-0.
+[2025-10-16 22:26:11] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 56
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 22:26:14 [loggers.py:118] Engine 000: Avg prompt throughput: 774.2 tokens/s, Avg generation throughput: 23.9 tokens/s, Running: 16 reqs, Waiting: 0 reqs, GPU KV cache usage: 12.4%, Prefix cache hit rate: 2.1%
+WARNING 10-16 22:26:14 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:54624 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54632 - "GET /health HTTP/1.1" 200 OK
+[2025-10-16 22:26:15] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-2c5dba0c9a6448d09ed64080fcd76134-0.
+[2025-10-16 22:26:15] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 103
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 97
+
+WARNING 10-16 22:26:17 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+WARNING 10-16 22:26:17 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:54636 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:26:17] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-8ec4719676cc4e1987891267a4308aab-0.
+[2025-10-16 22:26:17] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 82
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:54652 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:26:18] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-9dc1d9de2b3f4dfc9615b9f9eb938689-0.
+[2025-10-16 22:26:18] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 436
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+WARNING 10-16 22:26:20 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:57792 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:26:21] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-aeb8a785b9f04942a6475eef2abd0ecf-0.
+[2025-10-16 22:26:21] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 237
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 90
+
+INFO 10-16 22:26:24 [loggers.py:118] Engine 000: Avg prompt throughput: 1028.3 tokens/s, Avg generation throughput: 24.1 tokens/s, Running: 18 reqs, Waiting: 0 reqs, GPU KV cache usage: 14.7%, Prefix cache hit rate: 2.1%
+INFO:     127.0.0.1:49802 - "GET /health HTTP/1.1" 200 OK
+WARNING 10-16 22:26:26 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:54624 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:26:27] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-b1850c3ba2ae4a0299c6644e5e7b87f5-0.
+[2025-10-16 22:26:27] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 109
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+WARNING 10-16 22:26:29 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+WARNING 10-16 22:26:29 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:54608 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:26:30] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-2f127e3fa0e34291b6234ea16e0aec83-0.
+[2025-10-16 22:26:30] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 67
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:38576 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:26:30] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-cf57b402015f4b83849d0ee36ba589d4-0.
+[2025-10-16 22:26:30] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 1764
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 22:26:34 [loggers.py:118] Engine 000: Avg prompt throughput: 1695.1 tokens/s, Avg generation throughput: 18.5 tokens/s, Running: 20 reqs, Waiting: 0 reqs, GPU KV cache usage: 16.6%, Prefix cache hit rate: 2.0%
+INFO:     127.0.0.1:38588 - "GET /health HTTP/1.1" 200 OK
+WARNING 10-16 22:26:35 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:38590 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:26:36] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-2d760d62e85244f7a0e745d2d47e5756-0.
+[2025-10-16 22:26:36] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 34
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+WARNING 10-16 22:26:38 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:38592 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:26:39] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-c86c19a25164404b84102b8ab9dacdee-0.
+[2025-10-16 22:26:39] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 14
+
+num_lookup_hits on hbm: 12
+
+num_lookup_hits on storage except hbm: 0
+
+WARNING 10-16 22:26:41 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:57340 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:26:41] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-11e18d5b2705462aaa87af122b34e5e3-0.
+[2025-10-16 22:26:41] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 104
+
+num_lookup_hits on hbm: 97
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 22:26:44 [loggers.py:118] Engine 000: Avg prompt throughput: 3305.8 tokens/s, Avg generation throughput: 22.9 tokens/s, Running: 23 reqs, Waiting: 0 reqs, GPU KV cache usage: 18.9%, Prefix cache hit rate: 2.8%
+WARNING 10-16 22:26:44 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:57346 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57362 - "GET /health HTTP/1.1" 200 OK
+[2025-10-16 22:26:45] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-a594b0f43ef24c8e9e7798e571a6548d-0.
+[2025-10-16 22:26:45] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 21
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+WARNING 10-16 22:26:47 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:57376 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:26:48] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-11cf2af4b4e9487cb4565a914fef61f8-0.
+[2025-10-16 22:26:48] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 13
+
+num_lookup_hits on hbm: 12
+
+num_lookup_hits on storage except hbm: 0
+
+WARNING 10-16 22:26:50 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:57340 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:26:50] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-89a07b83f6c14db49bd7bb10ce7692ef-0.
+[2025-10-16 22:26:50] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 88
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+WARNING 10-16 22:26:53 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:53876 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:26:54] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-84689a2b0a1340b1a043a0deed220525-0.
+[2025-10-16 22:26:54] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 370
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 164
+
+INFO 10-16 22:26:54 [loggers.py:118] Engine 000: Avg prompt throughput: 4104.1 tokens/s, Avg generation throughput: 39.9 tokens/s, Running: 26 reqs, Waiting: 0 reqs, GPU KV cache usage: 20.6%, Prefix cache hit rate: 2.9%
+INFO:     127.0.0.1:53880 - "GET /health HTTP/1.1" 200 OK
+WARNING 10-16 22:26:59 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:38590 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:27:00] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-e66ec107877d42f1a6f664899ab507ac-0.
+[2025-10-16 22:27:00] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 162
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+WARNING 10-16 22:27:02 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:38760 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:27:03] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-72f0df4ea3db4ed990b544a25e10c7e7-0.
+[2025-10-16 22:27:03] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 248
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 22:27:04 [loggers.py:118] Engine 000: Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 37.7 tokens/s, Running: 27 reqs, Waiting: 0 reqs, GPU KV cache usage: 22.0%, Prefix cache hit rate: 2.9%
+INFO:     127.0.0.1:38776 - "GET /health HTTP/1.1" 200 OK
+WARNING 10-16 22:27:05 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:38790 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:27:06] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-bacd65991fd44348ae1f1f92519f2b34-0.
+[2025-10-16 22:27:06] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 464
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+WARNING 10-16 22:27:11 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:53518 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:27:12] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-dddfacf72b1140579c5776a4392d382d-0.
+[2025-10-16 22:27:12] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 119
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 22:27:14 [loggers.py:118] Engine 000: Avg prompt throughput: 567.9 tokens/s, Avg generation throughput: 35.6 tokens/s, Running: 28 reqs, Waiting: 0 reqs, GPU KV cache usage: 23.4%, Prefix cache hit rate: 2.9%
+INFO:     127.0.0.1:47104 - "GET /health HTTP/1.1" 200 OK
+WARNING 10-16 22:27:17 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:47106 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:27:18] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-356a30490be148639eb06da2c17bab12-0.
+[2025-10-16 22:27:18] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 71
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+WARNING 10-16 22:27:20 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:50444 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:27:21] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-eecf662923d34c1dab0310e308faccf2-0.
+[2025-10-16 22:27:21] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 70
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+WARNING 10-16 22:27:23 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:50446 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:27:24] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-34d45335e0cf47378253337232e3caea-0.
+[2025-10-16 22:27:24] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 104
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 22:27:24 [loggers.py:118] Engine 000: Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 30.6 tokens/s, Running: 31 reqs, Waiting: 0 reqs, GPU KV cache usage: 25.0%, Prefix cache hit rate: 2.9%
+INFO:     127.0.0.1:50456 - "GET /health HTTP/1.1" 200 OK
+WARNING 10-16 22:27:29 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:58338 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:27:30] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-a2387fdeb9a34c70a995317eb47e5007-0.
+[2025-10-16 22:27:30] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 52
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+WARNING 10-16 22:27:32 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:58354 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:27:33] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-f197dd500e7046898a27afebb47d8293-0.
+[2025-10-16 22:27:33] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 14
+
+num_lookup_hits on hbm: 12
+
+num_lookup_hits on storage except hbm: 2
+
+INFO 10-16 22:27:34 [loggers.py:118] Engine 000: Avg prompt throughput: 89.9 tokens/s, Avg generation throughput: 27.4 tokens/s, Running: 33 reqs, Waiting: 0 reqs, GPU KV cache usage: 26.8%, Prefix cache hit rate: 3.0%
+INFO:     127.0.0.1:58362 - "GET /health HTTP/1.1" 200 OK
+WARNING 10-16 22:27:35 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:58374 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:27:36] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-a2ea5588908a4fe5acf01585d4502744-0.
+[2025-10-16 22:27:36] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 160
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 149
+
+WARNING 10-16 22:27:38 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:58384 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:27:39] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-aee8018689a442c2974556bd5b043c4b-0.
+[2025-10-16 22:27:39] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 219
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+WARNING 10-16 22:27:41 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:52638 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:27:42] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-c448d5f9118941b8973369b6405c405e-0.
+[2025-10-16 22:27:42] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 1065
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 22:27:44 [loggers.py:118] Engine 000: Avg prompt throughput: 2979.0 tokens/s, Avg generation throughput: 29.6 tokens/s, Running: 35 reqs, Waiting: 0 reqs, GPU KV cache usage: 29.1%, Prefix cache hit rate: 2.9%
+WARNING 10-16 22:27:44 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:57376 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52644 - "GET /health HTTP/1.1" 200 OK
+[2025-10-16 22:27:45] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-387c73ba0e444efaa05edaf1694d368f-0.
+[2025-10-16 22:27:45] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 123
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+WARNING 10-16 22:27:47 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:52652 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:27:48] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-2c307525c6464acc99d8d42d12138d4c-0.
+[2025-10-16 22:27:48] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 239
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+WARNING 10-16 22:27:50 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:49870 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:27:51] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-22cfb30baca54caa98a6a6e1ed49cf90-0.
+[2025-10-16 22:27:51] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 573
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 22:27:54 [loggers.py:118] Engine 000: Avg prompt throughput: 3476.3 tokens/s, Avg generation throughput: 35.0 tokens/s, Running: 38 reqs, Waiting: 0 reqs, GPU KV cache usage: 30.7%, Prefix cache hit rate: 2.8%
+INFO:     127.0.0.1:49878 - "GET /health HTTP/1.1" 200 OK
+WARNING 10-16 22:27:56 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:49886 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:27:57] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-60164694a8b74d27af16506601861996-0.
+[2025-10-16 22:27:57] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 569
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 22:28:04 [loggers.py:118] Engine 000: Avg prompt throughput: 5717.0 tokens/s, Avg generation throughput: 43.7 tokens/s, Running: 39 reqs, Waiting: 0 reqs, GPU KV cache usage: 32.4%, Prefix cache hit rate: 2.8%
+INFO:     127.0.0.1:37588 - "GET /health HTTP/1.1" 200 OK
+WARNING 10-16 22:28:05 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:37600 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:28:06] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-e8a3a46fe0f74344bab8b7bac6e52d6c-0.
+[2025-10-16 22:28:06] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 29
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 18
+
+WARNING 10-16 22:28:08 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+WARNING 10-16 22:28:08 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:37612 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37622 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:28:09] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-6c37999c9f2f454481a29d61ca4cff3c-0.
+[2025-10-16 22:28:09] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 18
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 10
+
+[2025-10-16 22:28:09] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-99abadd47af5419bae1992e0fa9fedf0-0.
+[2025-10-16 22:28:09] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 812
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 22:28:14 [loggers.py:118] Engine 000: Avg prompt throughput: 4689.2 tokens/s, Avg generation throughput: 47.0 tokens/s, Running: 41 reqs, Waiting: 0 reqs, GPU KV cache usage: 32.6%, Prefix cache hit rate: 2.8%
+WARNING 10-16 22:28:14 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:35202 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40098 - "GET /health HTTP/1.1" 200 OK
+[2025-10-16 22:28:15] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-1374f41434dd4984b592d25f1864be62-0.
+[2025-10-16 22:28:15] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 20
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+WARNING 10-16 22:28:17 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+WARNING 10-16 22:28:17 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:40114 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40124 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:28:18] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-b58dde60092449608e287becee7b30f6-0.
+[2025-10-16 22:28:18] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 85
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+[2025-10-16 22:28:18] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-3093c748dd224ebbbfe03894f4630b0e-0.
+[2025-10-16 22:28:18] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 174
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 75
+
+WARNING 10-16 22:28:20 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:46330 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:28:20] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-48ba26ccfc244c6282bb04000ce7fe13-0.
+[2025-10-16 22:28:20] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 40
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 8
+
+WARNING 10-16 22:28:23 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:57288 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:28:24] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-90734d9483784fc0aa2b3fdc4df20f14-0.
+[2025-10-16 22:28:24] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 144
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 124
+
+INFO 10-16 22:28:24 [loggers.py:118] Engine 000: Avg prompt throughput: 919.3 tokens/s, Avg generation throughput: 46.8 tokens/s, Running: 45 reqs, Waiting: 0 reqs, GPU KV cache usage: 34.2%, Prefix cache hit rate: 2.8%
+INFO:     127.0.0.1:57298 - "GET /health HTTP/1.1" 200 OK
+WARNING 10-16 22:28:26 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:37612 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:28:27] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-efb5434ca5a94f479624651823537236-0.
+[2025-10-16 22:28:27] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 286
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+WARNING 10-16 22:28:32 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:35684 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:28:33] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-0d4588281fe344059cf99b373a6439d2-0.
+[2025-10-16 22:28:33] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 40
+
+num_lookup_hits on hbm: 30
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 22:28:34 [loggers.py:118] Engine 000: Avg prompt throughput: 1180.0 tokens/s, Avg generation throughput: 42.4 tokens/s, Running: 46 reqs, Waiting: 0 reqs, GPU KV cache usage: 35.8%, Prefix cache hit rate: 3.0%
+INFO:     127.0.0.1:35700 - "GET /health HTTP/1.1" 200 OK
+WARNING 10-16 22:28:35 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:54636 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:28:36] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-1768324e442742aba3916d7b09155ffe-0.
+[2025-10-16 22:28:36] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 15
+
+num_lookup_hits on hbm: 13
+
+num_lookup_hits on storage except hbm: 0
+
+WARNING 10-16 22:28:38 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+WARNING 10-16 22:28:38 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:35706 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35714 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:28:39] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-9f8112021a18469784bfe71675441e37-0.
+[2025-10-16 22:28:39] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 14
+
+num_lookup_hits on hbm: 12
+
+num_lookup_hits on storage except hbm: 0
+
+[2025-10-16 22:28:39] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-61f8accee4a64df0bc742419a3bca453-0.
+[2025-10-16 22:28:39] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 396
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 22:28:44 [loggers.py:118] Engine 000: Avg prompt throughput: 454.6 tokens/s, Avg generation throughput: 48.0 tokens/s, Running: 48 reqs, Waiting: 0 reqs, GPU KV cache usage: 37.3%, Prefix cache hit rate: 3.1%
+WARNING 10-16 22:28:44 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:35854 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35860 - "GET /health HTTP/1.1" 200 OK
+[2025-10-16 22:28:45] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-03c9c4c8310a4338b0667e757cb9a4ae-0.
+[2025-10-16 22:28:45] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 84
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+WARNING 10-16 22:28:47 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:35868 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:28:48] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-f719e5dfea2045b3b71e329861e39d30-0.
+[2025-10-16 22:28:48] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 212
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+WARNING 10-16 22:28:50 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:58714 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:28:51] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-3be987c7d35a4d1da425b5f373e2cb05-0.
+[2025-10-16 22:28:51] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 208
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 194
+
+INFO 10-16 22:28:54 [loggers.py:118] Engine 000: Avg prompt throughput: 3071.9 tokens/s, Avg generation throughput: 45.7 tokens/s, Running: 51 reqs, Waiting: 0 reqs, GPU KV cache usage: 39.5%, Prefix cache hit rate: 3.1%
+INFO:     127.0.0.1:58718 - "GET /health HTTP/1.1" 200 OK
+WARNING 10-16 22:28:56 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:58726 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:28:57] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-2d79a59a8de943e69ef0137dbd6f252d-0.
+[2025-10-16 22:28:57] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 134
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+WARNING 10-16 22:28:59 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:35706 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:29:00] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-eedcce4e244a4e7495628ef849449027-0.
+[2025-10-16 22:29:00] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 457
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 22:29:04 [loggers.py:118] Engine 000: Avg prompt throughput: 1336.1 tokens/s, Avg generation throughput: 50.1 tokens/s, Running: 50 reqs, Waiting: 0 reqs, GPU KV cache usage: 40.7%, Prefix cache hit rate: 3.0%
+INFO:     127.0.0.1:55270 - "GET /health HTTP/1.1" 200 OK
+WARNING 10-16 22:29:05 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:53518 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:29:06] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-e0c47bfe54da49c0a7ea56cbabcf2d4c-0.
+[2025-10-16 22:29:06] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 306
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 290
+
+WARNING 10-16 22:29:08 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:55274 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:29:09] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-46194c3f3d78443ebb55a827fd2eeb4c-0.
+[2025-10-16 22:29:09] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 59
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 42
+
+WARNING 10-16 22:29:11 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:46730 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:29:12] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-d5ae91695eec43a3a45e31b01ffb8675-0.
+[2025-10-16 22:29:12] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 366
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 22:29:14 [loggers.py:118] Engine 000: Avg prompt throughput: 3875.3 tokens/s, Avg generation throughput: 42.5 tokens/s, Running: 53 reqs, Waiting: 0 reqs, GPU KV cache usage: 43.4%, Prefix cache hit rate: 3.0%
+INFO:     127.0.0.1:46742 - "GET /health HTTP/1.1" 200 OK
+WARNING 10-16 22:29:20 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:46398 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:29:21] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-88b8c7f76b0b45c783390e87ed3e3061-0.
+[2025-10-16 22:29:21] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 81
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+WARNING 10-16 22:29:23 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:46406 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO 10-16 22:29:24 [loggers.py:118] Engine 000: Avg prompt throughput: 540.1 tokens/s, Avg generation throughput: 45.5 tokens/s, Running: 54 reqs, Waiting: 0 reqs, GPU KV cache usage: 44.9%, Prefix cache hit rate: 3.0%
+[2025-10-16 22:29:24] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-e672a28ab4784f40bfd7fe6de042e490-0.
+[2025-10-16 22:29:24] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 177
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO:     127.0.0.1:46414 - "GET /health HTTP/1.1" 200 OK
+WARNING 10-16 22:29:26 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:46430 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:29:27] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-87437f163a8f45079b1fcfea8259e50a-0.
+[2025-10-16 22:29:27] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 135
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+WARNING 10-16 22:29:29 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:58714 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:29:29] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-7cca8340876f43bdb05fb0bc12b47154-0.
+[2025-10-16 22:29:29] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 188
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 22:29:34 [loggers.py:118] Engine 000: Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 45.0 tokens/s, Running: 55 reqs, Waiting: 0 reqs, GPU KV cache usage: 45.0%, Prefix cache hit rate: 3.0%
+INFO:     127.0.0.1:52390 - "GET /health HTTP/1.1" 200 OK
+WARNING 10-16 22:29:35 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:53524 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:29:36] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-4eb50a8327a6408f907a63dfb47c5d85-0.
+[2025-10-16 22:29:36] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 38
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+WARNING 10-16 22:29:38 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:52398 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:29:38] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-5c0ffd34654d43ddac20407c014957c1-0.
+WARNING 10-16 22:29:41 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:54452 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:29:42] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-9823891895ef4e6f8f5eab0de71ef8c1-0.
+[2025-10-16 22:29:42] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 14
+
+num_lookup_hits on hbm: 12
+
+num_lookup_hits on storage except hbm: 2
+
+INFO 10-16 22:29:44 [loggers.py:118] Engine 000: Avg prompt throughput: 9875.4 tokens/s, Avg generation throughput: 45.3 tokens/s, Running: 58 reqs, Waiting: 0 reqs, GPU KV cache usage: 46.8%, Prefix cache hit rate: 3.2%
+INFO:     127.0.0.1:54460 - "GET /health HTTP/1.1" 200 OK
+WARNING 10-16 22:29:47 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:54476 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:29:47] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-d5364eb927e646a7b5acd525e8913bb1-0.
+[2025-10-16 22:29:47] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 37
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+WARNING 10-16 22:29:50 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:39588 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:29:51] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-cc75c3901d0149d69a23ef0c647a268b-0.
+[2025-10-16 22:29:51] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 187
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 22:29:54 [loggers.py:118] Engine 000: Avg prompt throughput: 1622.7 tokens/s, Avg generation throughput: 49.4 tokens/s, Running: 60 reqs, Waiting: 0 reqs, GPU KV cache usage: 48.5%, Prefix cache hit rate: 3.2%
+INFO:     127.0.0.1:39590 - "GET /health HTTP/1.1" 200 OK
+WARNING 10-16 22:29:56 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:48396 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:29:57] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-2e9e50e16c0147cd96a450455bd144ab-0.
+[2025-10-16 22:29:57] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 121
+
+num_lookup_hits on hbm: 113
+
+num_lookup_hits on storage except hbm: 0
+
+WARNING 10-16 22:30:02 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:56742 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:30:03] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-9f7b74b46c3f49ff86e1daadd7e191ed-0.
+[2025-10-16 22:30:03] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 40
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 8
+
+INFO 10-16 22:30:04 [loggers.py:118] Engine 000: Avg prompt throughput: 1016.5 tokens/s, Avg generation throughput: 51.5 tokens/s, Running: 61 reqs, Waiting: 0 reqs, GPU KV cache usage: 49.8%, Prefix cache hit rate: 3.7%
+INFO:     127.0.0.1:56758 - "GET /health HTTP/1.1" 200 OK
+WARNING 10-16 22:30:05 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:56774 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:30:06] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-3e86a8bdf5f84c38b131b73e8f0cf75a-0.
+[2025-10-16 22:30:06] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 97
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+WARNING 10-16 22:30:11 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:46316 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:30:12] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-22cd671de1064559911861fee7e1abe5-0.
+[2025-10-16 22:30:12] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 144
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 22:30:14 [loggers.py:118] Engine 000: Avg prompt throughput: 10605.2 tokens/s, Avg generation throughput: 57.2 tokens/s, Running: 61 reqs, Waiting: 0 reqs, GPU KV cache usage: 50.0%, Prefix cache hit rate: 3.7%
+INFO:     127.0.0.1:59602 - "GET /health HTTP/1.1" 200 OK
+WARNING 10-16 22:30:17 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:37600 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:30:18] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-b38f08df9a4e4a4482f13d739801b625-0.
+[2025-10-16 22:30:18] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 14
+
+num_lookup_hits on hbm: 12
+
+num_lookup_hits on storage except hbm: 2
+
+WARNING 10-16 22:30:20 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:53524 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:30:21] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-aad1261704d7457583c35ad386f7bcfa-0.
+[2025-10-16 22:30:21] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 200
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 22:30:24 [loggers.py:118] Engine 000: Avg prompt throughput: 2794.6 tokens/s, Avg generation throughput: 62.4 tokens/s, Running: 59 reqs, Waiting: 0 reqs, GPU KV cache usage: 50.0%, Prefix cache hit rate: 3.7%
+INFO:     127.0.0.1:50396 - "GET /health HTTP/1.1" 200 OK
+WARNING 10-16 22:30:26 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:58374 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:30:26] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-5af26edc345f42dfa3f24e19274f1dc6-0.
+[2025-10-16 22:30:26] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 14
+
+num_lookup_hits on hbm: 12
+
+num_lookup_hits on storage except hbm: 2
+
+WARNING 10-16 22:30:32 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:57340 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:30:33] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-0e916defbcc94371a04272e5f61d27a4-0.
+INFO 10-16 22:30:34 [loggers.py:118] Engine 000: Avg prompt throughput: 1317.3 tokens/s, Avg generation throughput: 65.0 tokens/s, Running: 58 reqs, Waiting: 0 reqs, GPU KV cache usage: 50.7%, Prefix cache hit rate: 3.8%
+INFO:     127.0.0.1:57332 - "GET /health HTTP/1.1" 200 OK
+WARNING 10-16 22:30:38 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:57342 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:30:39] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-b0e5fee562d946d0b1700c8a657cde87-0.
+[2025-10-16 22:30:39] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 192
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+WARNING 10-16 22:30:41 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:43450 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:30:42] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-136abc0914144b829ead7ca925e658c7-0.
+[2025-10-16 22:30:42] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 241
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 22:30:44 [loggers.py:118] Engine 000: Avg prompt throughput: 1834.1 tokens/s, Avg generation throughput: 63.1 tokens/s, Running: 60 reqs, Waiting: 0 reqs, GPU KV cache usage: 52.2%, Prefix cache hit rate: 3.8%
+WARNING 10-16 22:30:44 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:43460 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43454 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:30:46] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-6443b9ee3d584a61a6bd00d5739bef57-0.
+[2025-10-16 22:30:46] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 1924
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 612
+
+[2025-10-16 22:30:46] - ucm.integration.vllm.uc_connector - WARNING [uc_connector.py:670] 
+create_results on storage: [-50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, -50003, 0, 0, 0, 0]
+
+WARNING 10-16 22:30:50 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:54636 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:30:51] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-94f753d5deeb42eab5a7c8425a04e353-0.
+[2025-10-16 22:30:51] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 50
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+WARNING 10-16 22:30:53 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:58374 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:30:54] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-3b5b342ac36346269d5c96e0a02b3b49-0.
+[2025-10-16 22:30:54] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 47
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 41
+
+INFO 10-16 22:30:54 [loggers.py:118] Engine 000: Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 54.0 tokens/s, Running: 60 reqs, Waiting: 0 reqs, GPU KV cache usage: 55.9%, Prefix cache hit rate: 3.6%
+INFO:     127.0.0.1:40344 - "GET /health HTTP/1.1" 200 OK
+WARNING 10-16 22:30:56 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:40354 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:30:57] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-099a005a06234212ac80386255abfe64-0.
+[2025-10-16 22:30:57] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 103
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+WARNING 10-16 22:30:59 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:34582 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:31:00] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-beed99b7a6694070824a7d43c6a51870-0.
+[2025-10-16 22:31:00] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 341
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+WARNING 10-16 22:31:02 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:58130 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:31:03] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-ff67fed721ad4867ab95e6d007a89472-0.
+[2025-10-16 22:31:03] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 208
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 22:31:04 [loggers.py:118] Engine 000: Avg prompt throughput: 2424.7 tokens/s, Avg generation throughput: 54.0 tokens/s, Running: 62 reqs, Waiting: 0 reqs, GPU KV cache usage: 56.5%, Prefix cache hit rate: 3.6%
+INFO:     127.0.0.1:58138 - "GET /health HTTP/1.1" 200 OK
+WARNING 10-16 22:31:05 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:46316 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:31:06] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-1bfc9fc6910c4fab82b0f2c0d85dc9ae-0.
+[2025-10-16 22:31:06] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 889
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+WARNING 10-16 22:31:11 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:49048 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:31:12] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-66134a7d42834ff6b602bad52f4836c4-0.
+[2025-10-16 22:31:12] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 75
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 22:31:14 [loggers.py:118] Engine 000: Avg prompt throughput: 2858.8 tokens/s, Avg generation throughput: 53.9 tokens/s, Running: 63 reqs, Waiting: 0 reqs, GPU KV cache usage: 57.6%, Prefix cache hit rate: 3.5%
+WARNING 10-16 22:31:14 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:49070 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49062 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:31:15] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-a381d0ea3200437e9c449aabb40ec92a-0.
+[2025-10-16 22:31:15] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 235
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+WARNING 10-16 22:31:17 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:49076 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:31:19] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-4a914b5deafa43b29256c76d4c0a145b-0.
+[2025-10-16 22:31:19] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 780
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 205
+
+WARNING 10-16 22:31:23 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:34334 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO 10-16 22:31:24 [loggers.py:118] Engine 000: Avg prompt throughput: 3667.5 tokens/s, Avg generation throughput: 50.4 tokens/s, Running: 64 reqs, Waiting: 0 reqs, GPU KV cache usage: 59.3%, Prefix cache hit rate: 3.4%
+INFO:     127.0.0.1:60036 - "GET /health HTTP/1.1" 200 OK
+WARNING 10-16 22:31:26 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:60052 - "POST /v1/completions HTTP/1.1" 200 OK
+WARNING 10-16 22:31:29 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:46200 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:31:32] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-b0cfe0bf2b39489891660e39c405734e-0.
+[2025-10-16 22:31:32] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 14
+
+num_lookup_hits on hbm: 12
+
+num_lookup_hits on storage except hbm: 2
+
+WARNING 10-16 22:31:32 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+WARNING 10-16 22:31:32 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:47106 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46210 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:31:34] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-cb28e65d83a04fa9bd7033659a6a670a-0.
+INFO 10-16 22:31:34 [loggers.py:118] Engine 000: Avg prompt throughput: 3733.1 tokens/s, Avg generation throughput: 55.9 tokens/s, Running: 63 reqs, Waiting: 4 reqs, GPU KV cache usage: 60.7%, Prefix cache hit rate: 3.5%
+INFO:     127.0.0.1:46224 - "GET /health HTTP/1.1" 200 OK
+WARNING 10-16 22:31:38 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:52398 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:31:42] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-60dea9f622024c6faa2c529a9ce2f8b5-0.
+[2025-10-16 22:31:42] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 122
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 106
+
+INFO 10-16 22:31:44 [loggers.py:118] Engine 000: Avg prompt throughput: 4861.7 tokens/s, Avg generation throughput: 59.0 tokens/s, Running: 64 reqs, Waiting: 3 reqs, GPU KV cache usage: 62.4%, Prefix cache hit rate: 3.5%
+WARNING 10-16 22:31:44 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:38856 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57346 - "POST /v1/completions HTTP/1.1" 200 OK
+WARNING 10-16 22:31:47 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:38868 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:31:48] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-a6e01abf33674905b6837ced8248ea7e-0.
+[2025-10-16 22:31:48] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 210
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+WARNING 10-16 22:31:50 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:49886 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:31:53] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-b67045c205544a2e83edc5ab58b008a7-0.
+[2025-10-16 22:31:53] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 1480
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 1195
+
+INFO 10-16 22:31:54 [loggers.py:118] Engine 000: Avg prompt throughput: 783.6 tokens/s, Avg generation throughput: 60.2 tokens/s, Running: 63 reqs, Waiting: 5 reqs, GPU KV cache usage: 61.1%, Prefix cache hit rate: 3.5%
+INFO:     127.0.0.1:56160 - "GET /health HTTP/1.1" 200 OK
+[2025-10-16 22:31:56] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-09317ccc47e943f182eff64916d18edd-0.
+[2025-10-16 22:31:56] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 45
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 16
+
+WARNING 10-16 22:31:56 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:58714 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:31:58] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-f5a0cc799e844904ae6b873a7fc2dea5-0.
+[2025-10-16 22:31:58] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 196
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 182
+
+WARNING 10-16 22:31:59 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:54652 - "POST /v1/completions HTTP/1.1" 200 OK
+WARNING 10-16 22:32:02 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:37838 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO 10-16 22:32:04 [loggers.py:118] Engine 000: Avg prompt throughput: 5419.2 tokens/s, Avg generation throughput: 48.7 tokens/s, Running: 64 reqs, Waiting: 5 reqs, GPU KV cache usage: 65.3%, Prefix cache hit rate: 3.4%
+INFO:     127.0.0.1:37846 - "GET /health HTTP/1.1" 200 OK
+WARNING 10-16 22:32:05 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:37860 - "POST /v1/completions HTTP/1.1" 200 OK
+WARNING 10-16 22:32:11 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:50972 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:32:12] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-aa78c4a7da164f798839904f18b87f29-0.
+[2025-10-16 22:32:12] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 254
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 22:32:14 [loggers.py:118] Engine 000: Avg prompt throughput: 288.1 tokens/s, Avg generation throughput: 55.6 tokens/s, Running: 64 reqs, Waiting: 6 reqs, GPU KV cache usage: 64.7%, Prefix cache hit rate: 3.4%
+INFO:     127.0.0.1:50980 - "GET /health HTTP/1.1" 200 OK
+WARNING 10-16 22:32:17 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+WARNING 10-16 22:32:17 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:50990 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51000 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:32:21] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-6298639eccfe40d0b5d4b56d3a8fbe07-0.
+[2025-10-16 22:32:21] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 641
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+[2025-10-16 22:32:23] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-37f0326c515a4abca507b5886deef7e9-0.
+[2025-10-16 22:32:23] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 16
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+WARNING 10-16 22:32:23 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:54452 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO 10-16 22:32:24 [loggers.py:118] Engine 000: Avg prompt throughput: 1545.3 tokens/s, Avg generation throughput: 54.7 tokens/s, Running: 64 reqs, Waiting: 6 reqs, GPU KV cache usage: 65.9%, Prefix cache hit rate: 3.3%
+INFO:     127.0.0.1:55864 - "GET /health HTTP/1.1" 200 OK
+[2025-10-16 22:32:25] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-a504e2410729444cafb8f68e07061533-0.
+[2025-10-16 22:32:25] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 24
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+[2025-10-16 22:32:26] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-303d779a80d34e6c856f95ab88c5dbf8-0.
+[2025-10-16 22:32:26] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 175
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 154
+
+[2025-10-16 22:32:26] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-e5b589219a5e47cd80db935a3935f343-0.
+[2025-10-16 22:32:26] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 469
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+WARNING 10-16 22:32:29 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:43450 - "POST /v1/completions HTTP/1.1" 200 OK
+WARNING 10-16 22:32:32 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:38346 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:32:33] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-fd8ebf524f534b288769604e786bf253-0.
+[2025-10-16 22:32:33] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 79
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 22:32:34 [loggers.py:118] Engine 000: Avg prompt throughput: 103.6 tokens/s, Avg generation throughput: 42.4 tokens/s, Running: 63 reqs, Waiting: 5 reqs, GPU KV cache usage: 65.1%, Prefix cache hit rate: 3.3%
+INFO:     127.0.0.1:38350 - "GET /health HTTP/1.1" 200 OK
+[2025-10-16 22:32:34] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-9ccd26cf4cd04db7a84e1eda585146b9-0.
+[2025-10-16 22:32:34] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 33
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+WARNING 10-16 22:32:35 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:46200 - "POST /v1/completions HTTP/1.1" 200 OK
+WARNING 10-16 22:32:41 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:48996 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO 10-16 22:32:44 [loggers.py:118] Engine 000: Avg prompt throughput: 2611.9 tokens/s, Avg generation throughput: 52.8 tokens/s, Running: 64 reqs, Waiting: 6 reqs, GPU KV cache usage: 66.0%, Prefix cache hit rate: 3.3%
+WARNING 10-16 22:32:44 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:49014 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49000 - "POST /v1/completions HTTP/1.1" 200 OK
+WARNING 10-16 22:32:47 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:49026 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:32:48] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-a75a7a05040040e5999747dedc04ecc7-0.
+[2025-10-16 22:32:48] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 664
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+[2025-10-16 22:32:50] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-06961e3457f7492faee6d9f8c270cf1d-0.
+[2025-10-16 22:32:50] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 145
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+WARNING 10-16 22:32:53 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:54624 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO 10-16 22:32:54 [loggers.py:118] Engine 000: Avg prompt throughput: 212.2 tokens/s, Avg generation throughput: 43.0 tokens/s, Running: 64 reqs, Waiting: 6 reqs, GPU KV cache usage: 65.3%, Prefix cache hit rate: 3.3%
+INFO:     127.0.0.1:41652 - "GET /health HTTP/1.1" 200 OK
+WARNING 10-16 22:32:56 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:41662 - "POST /v1/completions HTTP/1.1" 200 OK
+WARNING 10-16 22:33:02 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:50312 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO 10-16 22:33:04 [loggers.py:118] Engine 000: Avg prompt throughput: 1505.2 tokens/s, Avg generation throughput: 47.3 tokens/s, Running: 64 reqs, Waiting: 9 reqs, GPU KV cache usage: 66.6%, Prefix cache hit rate: 3.3%
+INFO:     127.0.0.1:50326 - "GET /health HTTP/1.1" 200 OK
+WARNING 10-16 22:33:05 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:50328 - "POST /v1/completions HTTP/1.1" 200 OK
+WARNING 10-16 22:33:08 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:50330 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:33:10] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-ce5957c3ad4c4849bba5ce05e3fba202-0.
+[2025-10-16 22:33:13] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-6e17a4f275984dc98c0d264b53f72623-0.
+[2025-10-16 22:33:13] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 177
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+[2025-10-16 22:33:14] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-220ad33a613e46f7985bd0043dcac28d-0.
+[2025-10-16 22:33:14] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 434
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 22:33:14 [loggers.py:118] Engine 000: Avg prompt throughput: 600.4 tokens/s, Avg generation throughput: 43.4 tokens/s, Running: 63 reqs, Waiting: 9 reqs, GPU KV cache usage: 65.0%, Prefix cache hit rate: 3.3%
+WARNING 10-16 22:33:14 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:36034 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50972 - "POST /v1/completions HTTP/1.1" 200 OK
+WARNING 10-16 22:33:17 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:55274 - "POST /v1/completions HTTP/1.1" 200 OK
+WARNING 10-16 22:33:20 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:44700 - "POST /v1/completions HTTP/1.1" 200 OK
+WARNING 10-16 22:33:23 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:44710 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO 10-16 22:33:24 [loggers.py:118] Engine 000: Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 42.3 tokens/s, Running: 64 reqs, Waiting: 11 reqs, GPU KV cache usage: 66.2%, Prefix cache hit rate: 3.3%
+INFO:     127.0.0.1:44724 - "GET /health HTTP/1.1" 200 OK
+[2025-10-16 22:33:25] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-2087c0fa8f604536bb737278bc4e5beb-0.
+[2025-10-16 22:33:25] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 87
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+[2025-10-16 22:33:25] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-1a15772c076542eebc80fcf5c48e54d8-0.
+[2025-10-16 22:33:25] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 198
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+WARNING 10-16 22:33:26 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:38590 - "POST /v1/completions HTTP/1.1" 200 OK
+WARNING 10-16 22:33:29 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:58338 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:33:30] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-6ccb01e5e0d1491c986363e2c163bb72-0.
+[2025-10-16 22:33:30] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 609
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 585
+
+INFO 10-16 22:33:34 [loggers.py:118] Engine 000: Avg prompt throughput: 1347.9 tokens/s, Avg generation throughput: 40.7 tokens/s, Running: 64 reqs, Waiting: 11 reqs, GPU KV cache usage: 68.6%, Prefix cache hit rate: 3.3%
+INFO:     127.0.0.1:58004 - "GET /health HTTP/1.1" 200 OK
+WARNING 10-16 22:33:35 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:58020 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:33:38] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-6f37b70fc9164a71b61a3098123b943a-0.
+[2025-10-16 22:33:38] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 308
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 294
+
+[2025-10-16 22:33:39] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-76437e46d4324893b838c0ecf69cab46-0.
+WARNING 10-16 22:33:41 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:35202 - "POST /v1/completions HTTP/1.1" 200 OK
+[2025-10-16 22:33:43] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-8d6d796c058c4198b5b09470c1aa916d-0.
+[2025-10-16 22:33:43] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 35
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 22:33:44 [loggers.py:118] Engine 000: Avg prompt throughput: 9395.9 tokens/s, Avg generation throughput: 36.0 tokens/s, Running: 64 reqs, Waiting: 10 reqs, GPU KV cache usage: 70.3%, Prefix cache hit rate: 3.8%
+WARNING 10-16 22:33:44 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:46330 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39886 - "GET /health HTTP/1.1" 200 OK
+WARNING 10-16 22:33:47 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+WARNING 10-16 22:33:47 [protocol.py:58] The following fields were present in the request but ignored: {'no_stop_trim', 'return_hidden_states'}
+INFO:     127.0.0.1:39902 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39910 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO 10-16 22:33:54 [loggers.py:118] Engine 000: Avg prompt throughput: 5196.7 tokens/s, Avg generation throughput: 41.8 tokens/s, Running: 64 reqs, Waiting: 13 reqs, GPU KV cache usage: 71.5%, Prefix cache hit rate: 3.8%
+INFO:     127.0.0.1:36028 - "GET /health HTTP/1.1" 200 OK
+INFO 10-16 22:34:04 [loggers.py:118] Engine 000: Avg prompt throughput: 229.9 tokens/s, Avg generation throughput: 42.8 tokens/s, Running: 64 reqs, Waiting: 13 reqs, GPU KV cache usage: 72.6%, Prefix cache hit rate: 3.8%
+INFO:     127.0.0.1:41892 - "GET /health HTTP/1.1" 200 OK
+[2025-10-16 22:34:11] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-f48745a1ed6e41b1a32e374dbbadb2c6-0.
+[2025-10-16 22:34:11] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 123
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+[2025-10-16 22:34:13] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-91f0355f56b14a878b2bfae2de4a4a3d-0.
+[2025-10-16 22:34:13] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 300
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 22:34:14 [loggers.py:118] Engine 000: Avg prompt throughput: 1493.3 tokens/s, Avg generation throughput: 43.7 tokens/s, Running: 64 reqs, Waiting: 11 reqs, GPU KV cache usage: 72.6%, Prefix cache hit rate: 3.8%
+INFO:     127.0.0.1:51930 - "GET /health HTTP/1.1" 200 OK
+[2025-10-16 22:34:15] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-930f0cbe3eaf414c817e7cf307b7e2ee-0.
+[2025-10-16 22:34:15] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 338
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 22:34:24 [loggers.py:118] Engine 000: Avg prompt throughput: 9476.2 tokens/s, Avg generation throughput: 42.7 tokens/s, Running: 64 reqs, Waiting: 10 reqs, GPU KV cache usage: 72.6%, Prefix cache hit rate: 3.8%
+INFO:     127.0.0.1:42576 - "GET /health HTTP/1.1" 200 OK
+[2025-10-16 22:34:28] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-2e1e58f793354870802154e8a8b6efc9-0.
+[2025-10-16 22:34:28] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 45
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+[2025-10-16 22:34:34] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-2abe9def69e047f9bf6728bc2ea568ad-0.
+[2025-10-16 22:34:34] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 60
+
+num_lookup_hits on hbm: 39
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 22:34:34 [loggers.py:118] Engine 000: Avg prompt throughput: 1627.4 tokens/s, Avg generation throughput: 48.3 tokens/s, Running: 63 reqs, Waiting: 9 reqs, GPU KV cache usage: 72.8%, Prefix cache hit rate: 3.8%
+INFO:     127.0.0.1:44188 - "GET /health HTTP/1.1" 200 OK
+[2025-10-16 22:34:39] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-3945ebf7665d421a8a0d02dc91bbb51d-0.
+[2025-10-16 22:34:39] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 89
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+[2025-10-16 22:34:41] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-217f4d7ed49743c99f6d33a05b331e63-0.
+[2025-10-16 22:34:41] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 125
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 22:34:44 [loggers.py:118] Engine 000: Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 46.2 tokens/s, Running: 64 reqs, Waiting: 6 reqs, GPU KV cache usage: 73.3%, Prefix cache hit rate: 3.9%
+INFO:     127.0.0.1:46394 - "GET /health HTTP/1.1" 200 OK
+[2025-10-16 22:34:49] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-1eea95314dc542af8d3999a6e4342ede-0.
+[2025-10-16 22:34:49] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 548
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 22:34:54 [loggers.py:118] Engine 000: Avg prompt throughput: 1815.1 tokens/s, Avg generation throughput: 42.3 tokens/s, Running: 64 reqs, Waiting: 5 reqs, GPU KV cache usage: 73.6%, Prefix cache hit rate: 3.9%
+INFO:     127.0.0.1:60554 - "GET /health HTTP/1.1" 200 OK
+INFO 10-16 22:35:04 [loggers.py:118] Engine 000: Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 47.0 tokens/s, Running: 64 reqs, Waiting: 5 reqs, GPU KV cache usage: 74.9%, Prefix cache hit rate: 3.9%
+INFO:     127.0.0.1:53668 - "GET /health HTTP/1.1" 200 OK
+[2025-10-16 22:35:14] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-0e790bae272844048511269ffcf79cbe-0.
+[2025-10-16 22:35:14] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 54
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 22:35:14 [loggers.py:118] Engine 000: Avg prompt throughput: 2063.9 tokens/s, Avg generation throughput: 42.9 tokens/s, Running: 63 reqs, Waiting: 5 reqs, GPU KV cache usage: 72.1%, Prefix cache hit rate: 3.9%
+INFO:     127.0.0.1:60594 - "GET /health HTTP/1.1" 200 OK
+[2025-10-16 22:35:15] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-4762c07276aa49928693add66f63de23-0.
+[2025-10-16 22:35:15] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 118
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+[2025-10-16 22:35:24] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-b0e35ecb26244aeaa02e9acfabdd8689-0.
+[2025-10-16 22:35:24] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 83
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 22:35:24 [loggers.py:118] Engine 000: Avg prompt throughput: 7393.1 tokens/s, Avg generation throughput: 47.8 tokens/s, Running: 63 reqs, Waiting: 3 reqs, GPU KV cache usage: 67.7%, Prefix cache hit rate: 3.9%
+INFO:     127.0.0.1:58064 - "GET /health HTTP/1.1" 200 OK
+[2025-10-16 22:35:28] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-7361d4b226ca49ecbca27e325b992f14-0.
+[2025-10-16 22:35:28] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 27
+
+num_lookup_hits on hbm: 6
+
+num_lookup_hits on storage except hbm: 0
+
+[2025-10-16 22:35:29] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:539] get_num_new_matched_tokens request cmpl-bfc8953d17c141098410c311bf9ff3e4-0.
+[2025-10-16 22:35:29] - ucm.integration.vllm.uc_connector - INFO [uc_connector.py:603] 
+num_total_blocks: 1490
+
+num_lookup_hits on hbm: 1480
+
+num_lookup_hits on storage except hbm: 0
+
+INFO 10-16 22:35:34 [loggers.py:118] Engine 000: Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 41.9 tokens/s, Running: 63 reqs, Waiting: 0 reqs, GPU KV cache usage: 65.2%, Prefix cache hit rate: 7.6%
+INFO:     127.0.0.1:40040 - "GET /health HTTP/1.1" 200 OK
+INFO 10-16 22:35:44 [loggers.py:118] Engine 000: Avg prompt throughput: 10065.4 tokens/s, Avg generation throughput: 42.1 tokens/s, Running: 63 reqs, Waiting: 0 reqs, GPU KV cache usage: 66.4%, Prefix cache hit rate: 7.6%
+INFO:     127.0.0.1:41726 - "GET /health HTTP/1.1" 200 OK
+INFO 10-16 22:35:54 [loggers.py:118] Engine 000: Avg prompt throughput: 801.6 tokens/s, Avg generation throughput: 58.5 tokens/s, Running: 61 reqs, Waiting: 0 reqs, GPU KV cache usage: 60.4%, Prefix cache hit rate: 7.6%
+INFO:     127.0.0.1:53048 - "GET /health HTTP/1.1" 200 OK
+INFO 10-16 22:36:04 [loggers.py:118] Engine 000: Avg prompt throughput: 535.4 tokens/s, Avg generation throughput: 56.7 tokens/s, Running: 59 reqs, Waiting: 0 reqs, GPU KV cache usage: 60.2%, Prefix cache hit rate: 7.6%
+INFO:     127.0.0.1:37218 - "GET /health HTTP/1.1" 200 OK
+INFO 10-16 22:36:14 [loggers.py:118] Engine 000: Avg prompt throughput: 5754.7 tokens/s, Avg generation throughput: 58.2 tokens/s, Running: 59 reqs, Waiting: 0 reqs, GPU KV cache usage: 61.2%, Prefix cache hit rate: 7.6%
+INFO:     127.0.0.1:50592 - "GET /health HTTP/1.1" 200 OK
+INFO 10-16 22:36:24 [loggers.py:118] Engine 000: Avg prompt throughput: 3004.0 tokens/s, Avg generation throughput: 62.6 tokens/s, Running: 57 reqs, Waiting: 0 reqs, GPU KV cache usage: 57.3%, Prefix cache hit rate: 7.6%
+INFO:     127.0.0.1:52056 - "GET /health HTTP/1.1" 200 OK
+INFO 10-16 22:36:34 [loggers.py:118] Engine 000: Avg prompt throughput: 1925.9 tokens/s, Avg generation throughput: 69.8 tokens/s, Running: 53 reqs, Waiting: 0 reqs, GPU KV cache usage: 48.7%, Prefix cache hit rate: 7.6%
+INFO:     127.0.0.1:59212 - "GET /health HTTP/1.1" 200 OK
+INFO 10-16 22:36:44 [loggers.py:118] Engine 000: Avg prompt throughput: 2780.9 tokens/s, Avg generation throughput: 78.7 tokens/s, Running: 53 reqs, Waiting: 0 reqs, GPU KV cache usage: 49.6%, Prefix cache hit rate: 7.6%
+INFO:     127.0.0.1:43558 - "GET /health HTTP/1.1" 200 OK
+INFO 10-16 22:36:54 [loggers.py:118] Engine 000: Avg prompt throughput: 2164.4 tokens/s, Avg generation throughput: 84.5 tokens/s, Running: 50 reqs, Waiting: 0 reqs, GPU KV cache usage: 47.7%, Prefix cache hit rate: 7.6%
+INFO:     127.0.0.1:60104 - "GET /health HTTP/1.1" 200 OK
+INFO 10-16 22:37:04 [loggers.py:118] Engine 000: Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 84.1 tokens/s, Running: 48 reqs, Waiting: 0 reqs, GPU KV cache usage: 46.7%, Prefix cache hit rate: 7.6%
+INFO:     127.0.0.1:57866 - "GET /health HTTP/1.1" 200 OK
+INFO 10-16 22:37:14 [loggers.py:118] Engine 000: Avg prompt throughput: 4105.2 tokens/s, Avg generation throughput: 77.0 tokens/s, Running: 46 reqs, Waiting: 0 reqs, GPU KV cache usage: 43.5%, Prefix cache hit rate: 7.6%
+INFO:     127.0.0.1:41844 - "GET /health HTTP/1.1" 200 OK
+INFO 10-16 22:37:24 [loggers.py:118] Engine 000: Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 82.0 tokens/s, Running: 44 reqs, Waiting: 0 reqs, GPU KV cache usage: 43.4%, Prefix cache hit rate: 7.6%
+INFO:     127.0.0.1:35794 - "GET /health HTTP/1.1" 200 OK
+INFO 10-16 22:37:34 [loggers.py:118] Engine 000: Avg prompt throughput: 9949.6 tokens/s, Avg generation throughput: 90.7 tokens/s, Running: 41 reqs, Waiting: 0 reqs, GPU KV cache usage: 42.9%, Prefix cache hit rate: 7.6%
+INFO:     127.0.0.1:39142 - "GET /health HTTP/1.1" 200 OK
+INFO 10-16 22:37:44 [loggers.py:118] Engine 000: Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 106.4 tokens/s, Running: 38 reqs, Waiting: 0 reqs, GPU KV cache usage: 42.3%, Prefix cache hit rate: 7.6%
+INFO:     127.0.0.1:51652 - "GET /health HTTP/1.1" 200 OK
+INFO 10-16 22:37:54 [loggers.py:118] Engine 000: Avg prompt throughput: 3508.3 tokens/s, Avg generation throughput: 102.6 tokens/s, Running: 34 reqs, Waiting: 0 reqs, GPU KV cache usage: 41.6%, Prefix cache hit rate: 7.6%
+INFO:     127.0.0.1:54310 - "GET /health HTTP/1.1" 200 OK
+INFO 10-16 22:38:04 [loggers.py:118] Engine 000: Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 101.4 tokens/s, Running: 32 reqs, Waiting: 0 reqs, GPU KV cache usage: 40.6%, Prefix cache hit rate: 7.6%
+INFO:     127.0.0.1:47348 - "GET /health HTTP/1.1" 200 OK
+INFO 10-16 22:38:14 [loggers.py:118] Engine 000: Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 85.0 tokens/s, Running: 27 reqs, Waiting: 0 reqs, GPU KV cache usage: 33.0%, Prefix cache hit rate: 7.6%
+INFO:     127.0.0.1:34700 - "GET /health HTTP/1.1" 200 OK
+INFO 10-16 22:38:24 [loggers.py:118] Engine 000: Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 72.8 tokens/s, Running: 24 reqs, Waiting: 0 reqs, GPU KV cache usage: 32.3%, Prefix cache hit rate: 7.6%
+INFO:     127.0.0.1:57066 - "GET /health HTTP/1.1" 200 OK
+INFO 10-16 22:38:34 [loggers.py:118] Engine 000: Avg prompt throughput: 12318.8 tokens/s, Avg generation throughput: 143.8 tokens/s, Running: 15 reqs, Waiting: 0 reqs, GPU KV cache usage: 26.8%, Prefix cache hit rate: 7.6%
+INFO:     127.0.0.1:38310 - "GET /health HTTP/1.1" 200 OK
+INFO 10-16 22:38:44 [loggers.py:118] Engine 000: Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 321.6 tokens/s, Running: 2 reqs, Waiting: 0 reqs, GPU KV cache usage: 4.4%, Prefix cache hit rate: 7.6%
+INFO:     127.0.0.1:55648 - "GET /health HTTP/1.1" 200 OK
+INFO 10-16 22:38:54 [loggers.py:118] Engine 000: Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 214.4 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 7.6%
+INFO:     127.0.0.1:42904 - "GET /health HTTP/1.1" 200 OK
+INFO 10-16 22:38:56 [launcher.py:80] Shutting down FastAPI HTTP server.
+[rank0]:[W1016 22:38:57.712022933 ProcessGroupNCCL.cpp:1476] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
