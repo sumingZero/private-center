@@ -1,0 +1,126 @@
+传文件：scp -r -P 22 DeepSeek-V3-awq root@192.168.0.205:/home/models/
+查ip： python -c "import socket; s=socket.socket(socket.AF_INET, socket.SOCK_DGRAM); s.connect(('8.8.8.8', 53)); print(s.getsockname()[0]); s.close()"
+
+cmake -DDOWNLOAD_DEPENDENCE=ON -DRUNTIME_ENVIRONMENT=cuda ..
+
+116上的代理配好了，使用方法如下：
+不带有--network=host参数启动的容器/现阶段个人账号启动的容器：
+export http_proxy="http://172.80.0.1:7890"
+宿主机/带有--network=host启动的容器：
+export http_proxy="http://127.0.0.1:7890"
+其余配置项一样如下：
+export http_proxy="http://172.80.0.1:7890"
+export https_proxy=$http_proxy
+git config --global http.sslVerify false
+git config --global http.proxy $http_proxy
+git config --global https.proxy $https_proxy
+如果遇到了http2 framing layer错误，配置如下：
+git config --global http.version HTTP/1.1
+
+查文件占用：
+du -sh /home/share/yuhui-test
+df -h 目录
+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
+
+proxy_server=shct.5j4drli0gs2.ccddn4.icu
+proxy_port=65304
+password=c6ce4d48-03c3-36ce-9abd-c7d7f174b6df         
+proxy=http://${password}@${proxy_server}:${proxy_port}
+export http_proxy=$proxy
+export https_proxy=$proxy
+export ftp_proxy=$proxy
+export no_proxy=localhost,127.0.0.1/8,::1,192.168.0.0/23,*.local
+
+软连接：
+sudo ln -sf /usr/bin/python3 /usr/bin/python
+
+conda create -n env-ci python=3.10 -v
+安装bash
+conda install -c msys2 m2-base
+遇到错执行：
+set GO111MODULE=ON
+set GOPROXY=https://goproxy.io
+
+$env:HTTP_PROXY = "http://127.0.0.1:7890"
+$env:HTTPS_PROXY = "http://127.0.0.1:7890"
+
+# 1. 把本地修改存入“储藏区”
+git stash save "临时保存 trace_replay.py 的修改"
+# 2. 拉取并合并
+git pull
+# 3. 恢复之前的修改（可选）
+git stash pop
+
+github token：
+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
+永久保存token到磁盘
+git config --global credential.helper store
+
+# 1. 添加上游（首次）
+git remote add upstream https://github.com/original/repo.git
+# 2. 更新上游代码
+git fetch upstream
+# 3. 切换到你的分支并 rebase
+git checkout develop
+git rebase upstream/develop
+# 4. 解决冲突（如有）
+# git add .
+# git rebase --continue
+# 5. 推送到你的 fork
+git push -f
+
+git log
+git reset --soft
+git status
+git commit -m 
+git push -f
+
+git取消代理
+git config --global --unset http.proxy 
+git config --global --unset https.proxy
+git配置代理
+git config --global http.proxy http://127.0.0.1:7890
+git config --global https.proxy https://127.0.0.1:7890
+
+git config --global user.name "sumingZero"
+git config --global user.email "469434916@qq.com"
+
+# 清华源
+pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+pip config set global.trusted-host pypi.tuna.tsinghua.edu.cn
+uv pip install vllm==0.11.0 --torch-backend=auto --system -i https://pypi.tuna.tsinghua.edu.cn/simple
+
+根据最后一次提交生成patch
+git format-patch -1 HEAD
+git apply 
+
+# 镜像压缩打包
+docker save vllm/vllm-openai:v0.9.1 --output vllm-openai-v0.9.1.tar.gz
+# scp传输---有点慢
+scp -P 28600 vllm-openai-v0.9.1.tar.gz huawei@146.56.220.105:/home/huawei/yuhui
+# rsync传输---快一些
+wsl -l -v
+wsl -d Ubuntu
+rsync -avzP vllm-0.9.2.tar root@1.92.218.40:/home/yuhui
+rsync -av --partial --progress -e 'ssh -p 28600' C:\Users\yuhui\Desktop\vllm huawei@146.56.220.105:/home/huawei/yuhui/vllm
+# 解压缩
+gunzip vllm-openai-v0.9.1.tar.gz
+# 加载镜像
+docker load -i vllm-openai-v0.9.1.tar
+
+wsl操作：
+ wsl -l -v 查看状态
+wsl --shutdown
+# 只关闭 Ubuntu
+wsl -t Ubuntu
+# 只关闭 docker-desktop
+wsl -t docker-desktop
+# 启动Ubuntu
+wsl -d Ubuntu
+wsl ubuntu添加代理：
+win_ip=$(ip route show | grep -i default | awk '{ print $3}')
+export http_proxy="http://$win_ip:7890"
+export https_proxy="http://$win_ip:7890"
+
+
+docker-desktop 是 Docker Desktop 应用自动管理的，不需要手动启动它
