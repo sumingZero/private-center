@@ -1,0 +1,12 @@
+python3 /vllm-workspace/unified-cache-management/benchmarks/trace_replay.py \
+    --backend vllm \
+    --model /home/models/DeepSeek-V2-Lite \
+    --host 127.0.0.1 \
+    --port 7888 \
+    --trace-path /vllm-workspace/Test_UCM/conversation_trace_reduced.jsonl \
+    --percentile-metrics "ttft,tpot,itl,e2el" \
+    --metric-percentiles "50,80,99" \
+    --goodput "ttft:2000" "tpot:40" \
+    --ignore-eos \
+    --save-result \
+    --result-dir /vllm-workspace/Test_UCM/trace_result \
