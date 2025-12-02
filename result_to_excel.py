@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 
 # Step 1: 读取 JSON 数据
-with open('/vllm-workspace/Test_UCM/data.json', 'r', encoding='utf-8') as f:
+with open('/vllm-workspace/00_Test_UCM/data.json', 'r', encoding='utf-8') as f:
     data = json.load(f)
 
 # Step 2: 构建 metrics 表（这部分数据单位已经是 ms，无需改动）
@@ -69,7 +69,7 @@ details_data = {
     "output_lens": data.get("output_lens", []),
     "ttfts": ttfts_ms,  # 单位：ms
     "itls": itls_ms,    # 单位：ms（每个请求的平均 ITL）
-    "send_to_funning": srd_ms,
+    "send_to_running": srd_ms,
     "running_to_worker": rwd_ms,
     "worker_to_loadkv": wsd_ms,
     "loadkv_duration": ssd_ms,

@@ -1,28 +1,27 @@
-From f81790405ae309810bb5ff127bc5861cb6b5a3f9 Mon Sep 17 00:00:00 2001
+From 45b7504276f643f2da970e962ae8c0d6a8223918 Mon Sep 17 00:00:00 2001
 From: sumingZero <469434916@qq.com>
-Date: Mon, 17 Nov 2025 04:42:28 -0800
+Date: Mon, 1 Dec 2025 18:19:38 -0800
 Subject: [PATCH] add runtime points
 
 ---
- vllm/benchmarks/endpoint_request_func.py      | 24 +++++++++++++-
- vllm/benchmarks/serve.py                      | 14 +++++++++
+ vllm/benchmarks/endpoint_request_func.py      | 23 ++++++++++++++++
+ vllm/benchmarks/serve.py                      | 14 ++++++++++
  vllm/entrypoints/openai/protocol.py           |  2 ++
- vllm/entrypoints/openai/serving_completion.py |  3 ++
- vllm/v1/core/sched/scheduler.py               | 31 +++++++++++++++++++
- vllm/v1/outputs.py                            |  3 ++
- vllm/v1/worker/gpu_model_runner.py            | 16 ++++++++--
- vllm/v1/worker/gpu_worker.py                  |  6 +++-
- 8 files changed, 95 insertions(+), 4 deletions(-)
+ vllm/entrypoints/openai/serving_completion.py |  3 +++
+ vllm/v1/core/sched/scheduler.py               | 27 +++++++++++++++++++
+ vllm/v1/outputs.py                            |  3 +++
+ vllm/v1/worker/gpu_model_runner.py            | 15 +++++++++++
+ vllm/v1/worker/gpu_worker.py                  |  4 +++
+ 8 files changed, 91 insertions(+)
 
 diff --git a/vllm/benchmarks/endpoint_request_func.py b/vllm/benchmarks/endpoint_request_func.py
-index 60ae520db..4fdf8b0f0 100644
+index 60ae520db..6a5065fc6 100644
 --- a/vllm/benchmarks/endpoint_request_func.py
 +++ b/vllm/benchmarks/endpoint_request_func.py
-@@ -46,7 +46,15 @@ class RequestFuncOutput:
+@@ -46,6 +46,15 @@ class RequestFuncOutput:
      tpot: float = 0.0  # avg next-token latencies
      prompt_len: int = 0
      error: str = ""
--
 +    created_time: float = 0.0
 +    send_time: float = 0.0
 +    first_token_time: float = 0.0
@@ -33,9 +32,9 @@ index 60ae520db..4fdf8b0f0 100644
 +    finish_forward_time: float = 0.0
 +    finish_savekv_time: float = 0.0
  
+ 
  async def async_request_openai_completions(
-     request_func_input: RequestFuncInput,
-@@ -95,6 +103,7 @@ async def async_request_openai_completions(
+@@ -95,6 +104,7 @@ async def async_request_openai_completions(
          generated_text = ""
          st = time.perf_counter()
          most_recent_timestamp = st
@@ -43,7 +42,7 @@ index 60ae520db..4fdf8b0f0 100644
          try:
              async with session.post(url=api_url, json=payload,
                                      headers=headers) as response:
-@@ -115,6 +124,8 @@ async def async_request_openai_completions(
+@@ -115,6 +125,8 @@ async def async_request_openai_completions(
  
                          if chunk != "[DONE]":
                              data = json.loads(chunk)
@@ -52,7 +51,7 @@ index 60ae520db..4fdf8b0f0 100644
  
                              # NOTE: Some completion API might have a last
                              # usage summary response without a token so we
-@@ -127,6 +138,7 @@ async def async_request_openai_completions(
+@@ -127,6 +139,7 @@ async def async_request_openai_completions(
                                  # First token
                                  if not first_chunk_received:
                                      first_chunk_received = True
@@ -60,7 +59,7 @@ index 60ae520db..4fdf8b0f0 100644
                                      ttft = time.perf_counter() - st
                                      output.ttft = ttft
  
-@@ -140,6 +152,16 @@ async def async_request_openai_completions(
+@@ -140,6 +153,16 @@ async def async_request_openai_completions(
                              elif usage := data.get("usage"):
                                  output.output_tokens = usage.get(
                                      "completion_tokens")
@@ -144,10 +143,10 @@ index 6c9c29b71..00628c5a1 100644
                  final_usage_data = (final_usage_chunk.model_dump_json(
                      exclude_unset=False, exclude_none=True))
 diff --git a/vllm/v1/core/sched/scheduler.py b/vllm/v1/core/sched/scheduler.py
-index 2d4fd4d59..b3f35aa6b 100644
+index fe552db74..dac28f2f3 100644
 --- a/vllm/v1/core/sched/scheduler.py
 +++ b/vllm/v1/core/sched/scheduler.py
-@@ -497,6 +497,7 @@ class Scheduler(SchedulerInterface):
+@@ -495,6 +495,7 @@ class Scheduler(SchedulerInterface):
                  num_scheduled_tokens[request.request_id] = num_new_tokens
                  token_budget -= num_new_tokens
                  request.status = RequestStatus.RUNNING
@@ -155,16 +154,11 @@ index 2d4fd4d59..b3f35aa6b 100644
                  request.num_computed_tokens = num_computed_tokens
                  # Count the number of prefix cached tokens.
                  if request.num_cached_tokens < 0:
-@@ -809,6 +810,19 @@ class Scheduler(SchedulerInterface):
-             new_logprobs = None
+@@ -792,6 +793,14 @@ class Scheduler(SchedulerInterface):
              new_token_ids = generated_token_ids
              kv_transfer_params = None
-+
+ 
 +            is_prefill = request.num_output_tokens == 0
-+            if model_runner_output.finished_dumping is not None:
-+                request.succeed_dumped_blocks.extend(model_runner_output.finished_dumping.get(req_id, []))
-+                if is_prefill:
-+                    self.connector.connector.commit(model_runner_output.finished_dumping.get(req_id, []), True)
 +            if is_prefill:
 +                request.worker_time = model_runner_output.time_points["worker_time"]
 +                request.start_loadkv_time = model_runner_output.time_points["start_loadkv_time"]
@@ -172,13 +166,13 @@ index 2d4fd4d59..b3f35aa6b 100644
 +                request.finish_forward_time = model_runner_output.time_points["finish_forward_time"]
 +                request.finish_savekv_time = model_runner_output.time_points["finish_savekv_time"]
 +
-             if model_runner_output.finished_dumping is not None:
-                 request.succeed_dumped_blocks.extend(model_runner_output.finished_dumping.get(req_id, []))
-                 is_prefill = request.num_output_tokens == 0
-@@ -1014,6 +1028,23 @@ class Scheduler(SchedulerInterface):
- 
+             # Append generated tokens and check for stop. Note that if
+             # a request is still being prefilled, we expect the model runner
+             # to return empty token ids for the request.
+@@ -987,6 +996,24 @@ class Scheduler(SchedulerInterface):
          if not delay_free_blocks:
              self._free_blocks(request)
+ 
 +        # Not for nixl
 +        if kv_xfer_params is None:
 +            kv_xfer_params = dict(
@@ -196,14 +190,15 @@ index 2d4fd4d59..b3f35aa6b 100644
 +            kv_xfer_params["start_forward_time"] = request.start_forward_time
 +            kv_xfer_params["finish_forward_time"] = request.finish_forward_time
 +            kv_xfer_params["finish_savekv_time"] = request.finish_savekv_time
- 
++
          return kv_xfer_params
  
+     def _free_blocks(self, request: Request):
 diff --git a/vllm/v1/outputs.py b/vllm/v1/outputs.py
-index 16af8dbce..ccb2de827 100644
+index f78623f57..36613b556 100644
 --- a/vllm/v1/outputs.py
 +++ b/vllm/v1/outputs.py
-@@ -116,6 +116,9 @@ class ModelRunnerOutput:
+@@ -111,6 +111,9 @@ class ModelRunnerOutput:
      # req_id -> num_nans_in_logits
      num_nans_in_logits: Optional[dict[str, int]] = None
  
@@ -214,10 +209,10 @@ index 16af8dbce..ccb2de827 100644
  EMPTY_MODEL_RUNNER_OUTPUT = ModelRunnerOutput(req_ids=[],
                                                req_id_to_index={},
 diff --git a/vllm/v1/worker/gpu_model_runner.py b/vllm/v1/worker/gpu_model_runner.py
-index c3df1d5d2..95050ba87 100644
+index 5a26e88db..becc9e755 100644
 --- a/vllm/v1/worker/gpu_model_runner.py
 +++ b/vllm/v1/worker/gpu_model_runner.py
-@@ -1385,7 +1385,9 @@ class GPUModelRunner(LoRAModelRunnerMixin):
+@@ -1369,7 +1369,9 @@ class GPUModelRunner(LoRAModelRunnerMixin):
                  num_tokens_across_dp=num_tokens_across_dp,
                  skip_cuda_graphs=skip_cuda_graphs,
          ):
@@ -227,13 +222,15 @@ index c3df1d5d2..95050ba87 100644
  
              model_output = self.model(
                  input_ids=input_ids,
-@@ -1394,7 +1396,17 @@ class GPUModelRunner(LoRAModelRunnerMixin):
+@@ -1378,7 +1380,19 @@ class GPUModelRunner(LoRAModelRunnerMixin):
                  inputs_embeds=inputs_embeds,
              )
  
 +            torch.cuda.synchronize()
 +            finish_forward_time = time.perf_counter() * 1000
-             finished_dumping = self.maybe_wait_for_kv_save()
++
+             self.maybe_wait_for_kv_save()
++
 +            finish_savekv_time = time.perf_counter() * 1000
 +            time_points = {
 +                "start_loadkv_time": start_loadkv_time,
@@ -244,43 +241,31 @@ index c3df1d5d2..95050ba87 100644
 +
              finished_sending, finished_recving = (
                  self.get_finished_kv_transfers(scheduler_output))
-             invalid_block_ids = self.get_block_ids_with_load_errors()
-@@ -1568,7 +1580,6 @@ class GPUModelRunner(LoRAModelRunnerMixin):
-             get_kv_transfer_group().clear_connector_metadata()
  
-         self.eplb_step()
--
-         return ModelRunnerOutput(
-             req_ids=self.input_batch.req_ids,
-             req_id_to_index=self.input_batch.req_id_to_index,
-@@ -1581,7 +1592,8 @@ class GPUModelRunner(LoRAModelRunnerMixin):
+@@ -1563,6 +1577,7 @@ class GPUModelRunner(LoRAModelRunnerMixin):
+             finished_sending=finished_sending,
              finished_recving=finished_recving,
-             finished_dumping=finished_dumping,
              num_nans_in_logits=num_nans_in_logits,
--            invalid_block_ids = invalid_block_ids
-+            invalid_block_ids = invalid_block_ids,
 +            time_points = time_points
          )
  
      def propose_draft_token_ids(
 diff --git a/vllm/v1/worker/gpu_worker.py b/vllm/v1/worker/gpu_worker.py
-index 1b816b25b..3ee9ee3e4 100644
+index 9e7e44d06..086c559ff 100644
 --- a/vllm/v1/worker/gpu_worker.py
 +++ b/vllm/v1/worker/gpu_worker.py
-@@ -4,6 +4,7 @@
- import copy
+@@ -3,6 +3,7 @@
+ """A GPU worker class."""
  import gc
  import os
 +import time
  from typing import TYPE_CHECKING, Optional
  
  import torch
-@@ -306,9 +307,12 @@ class Worker(WorkerBase):
-             intermediate_tensors = IntermediateTensors(
+@@ -305,8 +306,11 @@ class Worker(WorkerBase):
                  get_pp_group().recv_tensor_dict(
                      all_gather_group=get_tp_group()))
--
-+        
+ 
 +        worker_time = time.perf_counter() * 1000
          output = self.model_runner.execute_model(scheduler_output,
                                                   intermediate_tensors)
